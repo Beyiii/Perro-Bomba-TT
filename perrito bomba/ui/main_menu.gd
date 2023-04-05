@@ -17,7 +17,4 @@ func _on_start_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()
-# ola por favor no explotes
-# shader mueraaaan 
-# siono shaders malditos
-# creo que se arregló github
+#cambioTT
