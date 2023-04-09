@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://b54tglvul1x3"]
+[gd_scene load_steps=32 format=3 uid="uid://b54tglvul1x3"]
 
 [ext_resource type="Script" path="res://scenes/Manos.gd" id="1_krtxt"]
 [ext_resource type="Texture2D" uid="uid://bm55m5rjnbcye" path="res://assets/Manito Quieta.png" id="2_310eh"]
@@ -11,7 +11,8 @@ height = 34.0
 
 [sub_resource type="Animation" id="Animation_4bos5"]
 resource_name = "AbrirDer"
-length = 0.8
+length = 0.56
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,7 +44,7 @@ tracks/2/path = NodePath("Manito der:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -51,7 +52,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_j71qy"]
 resource_name = "AbrirIzq"
-length = 0.8
+length = 0.56
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -95,7 +97,7 @@ tracks/3/path = NodePath("Manito izq:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
@@ -103,7 +105,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_ybuv5"]
 resource_name = "CerrarDer"
-length = 0.8
+length = 0.56
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -135,7 +138,7 @@ tracks/2/path = NodePath("Manito der:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [7, 6, 5, 4, 3, 2, 1, 0]
@@ -143,7 +146,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_7yd6e"]
 resource_name = "CerrarIzq"
-length = 0.8
+length = 0.56
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -187,14 +191,14 @@ tracks/3/path = NodePath("Manito izq:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"times": PackedFloat32Array(0, 0.05, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [7, 6, 5, 4, 3, 2, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_hofar"]
-length = 0.001
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -304,7 +308,7 @@ tracks/1/path = NodePath("Manito der:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.07, 0.17),
+"times": PackedFloat32Array(0, 0.19),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -370,7 +374,7 @@ tracks/3/path = NodePath("Manito izq:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.07, 0.17),
+"times": PackedFloat32Array(0, 0.19),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
@@ -387,86 +391,72 @@ _data = {
 "idleIzq": SubResource("Animation_638jl")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o42fv"]
-animation = &"AbrirDer"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rihbm"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d7jy0"]
 animation = &"AbrirIzq"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_brxyl"]
-animation = &"CerrarDer"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_001i8"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lmvbr"]
 animation = &"CerrarIzq"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8vx7p"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3vgdq"]
 animation = &"idleIzq"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_y8rrw"]
-sync = true
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ommp"]
+advance_mode = 2
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cki25"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0j16a"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_snwq2"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fs05r"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_big16"]
+states/AbrirIzq/node = SubResource("AnimationNodeAnimation_d7jy0")
+states/AbrirIzq/position = Vector2(529, 203)
+states/CerrarIzq/node = SubResource("AnimationNodeAnimation_lmvbr")
+states/CerrarIzq/position = Vector2(529, 100)
+states/idleIzq/node = SubResource("AnimationNodeAnimation_3vgdq")
+states/idleIzq/position = Vector2(358, 100)
+transitions = ["Start", "idleIzq", SubResource("AnimationNodeStateMachineTransition_1ommp"), "idleIzq", "CerrarIzq", SubResource("AnimationNodeStateMachineTransition_0j16a"), "CerrarIzq", "AbrirIzq", SubResource("AnimationNodeStateMachineTransition_snwq2"), "AbrirIzq", "idleIzq", SubResource("AnimationNodeStateMachineTransition_fs05r")]
+graph_offset = Vector2(0, 76.0175)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wuj4p"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j3mfg"]
+animation = &"AbrirDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jen53"]
+animation = &"CerrarDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w2bp1"]
 animation = &"idleDer"
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_yeeef"]
-graph_offset = Vector2(-111.667, -45.25)
-nodes/Animation/node = SubResource("AnimationNodeAnimation_8vx7p")
-nodes/Animation/position = Vector2(80, 180)
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_y8rrw")
-nodes/Blend2/position = Vector2(260, 80)
-nodes/idleDer/node = SubResource("AnimationNodeAnimation_cki25")
-nodes/idleDer/position = Vector2(80, 60)
-nodes/output/position = Vector2(440, 140)
-node_connections = [&"output", 0, &"Blend2", &"Blend2", 0, &"idleDer", &"Blend2", 1, &"Animation"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hudr6"]
+advance_mode = 2
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qaqex"]
-animation = &"idleDer"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ffiqi"]
-animation = &"idleIzq"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aeh1f"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gciax"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hak02"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_377he"]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0500t"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3jgpb"]
-switch_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fdf7t"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ynw3o"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y72td"]
-switch_mode = 2
-advance_mode = 2
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_bxf27"]
+states/AbrirDer/node = SubResource("AnimationNodeAnimation_j3mfg")
+states/AbrirDer/position = Vector2(539, 201)
+states/CerrarDer/node = SubResource("AnimationNodeAnimation_jen53")
+states/CerrarDer/position = Vector2(539, 100)
+states/idleDer/node = SubResource("AnimationNodeAnimation_w2bp1")
+states/idleDer/position = Vector2(355, 100)
+transitions = ["Start", "idleDer", SubResource("AnimationNodeStateMachineTransition_hudr6"), "idleDer", "CerrarDer", SubResource("AnimationNodeStateMachineTransition_gciax"), "CerrarDer", "AbrirDer", SubResource("AnimationNodeStateMachineTransition_377he"), "AbrirDer", "idleDer", SubResource("AnimationNodeStateMachineTransition_ynw3o")]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3yehm"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6wa1m"]
-states/AbrirDer/node = SubResource("AnimationNodeAnimation_o42fv")
-states/AbrirDer/position = Vector2(515, 375)
-states/AbrirIzq/node = SubResource("AnimationNodeAnimation_rihbm")
-states/AbrirIzq/position = Vector2(515, 47)
-states/CerrarDer/node = SubResource("AnimationNodeAnimation_brxyl")
-states/CerrarDer/position = Vector2(515, 135)
-states/CerrarIzq/node = SubResource("AnimationNodeAnimation_001i8")
-states/CerrarIzq/position = Vector2(515, 273)
-states/Start/position = Vector2(81, 197)
-states/idle/node = SubResource("AnimationNodeBlendTree_yeeef")
-states/idle/position = Vector2(218, 197)
-states/idleDer/node = SubResource("AnimationNodeAnimation_qaqex")
-states/idleDer/position = Vector2(218, 86)
-states/idleIzq/node = SubResource("AnimationNodeAnimation_ffiqi")
-states/idleIzq/position = Vector2(218, 309)
-transitions = ["CerrarDer", "AbrirIzq", SubResource("AnimationNodeStateMachineTransition_aeh1f"), "CerrarIzq", "AbrirDer", SubResource("AnimationNodeStateMachineTransition_hak02"), "idleDer", "CerrarDer", SubResource("AnimationNodeStateMachineTransition_0500t"), "idleIzq", "CerrarIzq", SubResource("AnimationNodeStateMachineTransition_3jgpb"), "AbrirIzq", "idleDer", SubResource("AnimationNodeStateMachineTransition_fdf7t"), "AbrirDer", "idleIzq", SubResource("AnimationNodeStateMachineTransition_y72td"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_3yehm")]
-
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_83o6v"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cwmfy"]
 
 [node name="Manos" type="CharacterBody2D"]
 script = ExtResource("1_krtxt")
@@ -496,12 +486,15 @@ libraries = {
 "": SubResource("AnimationLibrary_dx0yp")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeStateMachine_6wa1m")
+[node name="AnimationTreeManoIzq" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_big16")
 anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_83o6v")
-parameters/idle/Blend2/blend_amount = 0.5
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wuj4p")
+
+[node name="AnimationTreeManoDer" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_bxf27")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cwmfy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false

@@ -25,24 +25,74 @@ var Enemy = preload("res://scenes/enemy.tscn")
 
 @onready var pivot = $Pivot
 @onready var animation_player = $AnimationPlayer
-@onready var animation_tree = $AnimationTree
-@onready var playback = animation_tree.get("parameters/playback")
+@onready var animation_tree_izq = $AnimationTreeManoIzq
+@onready var animation_tree_der = $AnimationTreeManoDer
+@onready var playback_der = animation_tree_der.get("parameters/playback")
+@onready var playback_izq = animation_tree_izq.get("parameters/playback")
 
-var manoDer = false
-var Izq = false
+@onready var manitoDer = $"Manito der"
+@onready var manitoIzq = $"Manito izq"
 
+var click_manoDer = false
+var click_manoIzq = true
+var click_manos = true
+var mano_cerrada = false
 
 func _ready():
-	animation_tree.active = true
+	animation_tree_izq.active = true
+	animation_tree_der.active = true
 	
 func _process(delta):
 	
+	var mouse_pos = get_global_mouse_position()
+	playback_izq.travel("idleIzq")
+	playback_der.travel("idleDer")
 	
-	if InputEventMouseMotion:
-		var mouse_pos = get_global_mouse_position()
-		self.position = self.position.move_toward(mouse_pos, 200 * delta)
-		playback.travel("idle")
+	
+	if Input.is_action_just_pressed("Cambiar_mano"):
+		click_manos = false
+		click_manoDer = not click_manoDer
+		click_manoIzq = not click_manoIzq
 		
+		
+	if Input.is_action_just_pressed("Ambas_manos"):
+		click_manos = true
+		
+	if Input.is_action_pressed("Dedo_1"):
+		mano_cerrada = true
+		if click_manoIzq == true and click_manos == false:
+			playback_izq.travel("CerrarIzq")
+			
+		if click_manoDer == true:
+			playback_der.travel("CerrarDer")
+			
+	if not Input.is_action_pressed("Dedo_1") and mano_cerrada:
+		if click_manoIzq == true:
+			playback_izq.travel("CerrarIzq")
+			mano_cerrada = false
+			
+		if click_manoDer == true:
+			playback_der.travel("CerrarDer")
+			mano_cerrada = false
+			
+		
+		
+	if click_manos == true:
+		self.position = self.position.move_toward(mouse_pos, 200 * delta)
+		
+	if click_manos == false:
+		if click_manoDer == true:
+			var der = Vector2(305,100)
+			manitoDer.position = manitoDer.position.move_toward(mouse_pos - der, 400* delta)
+		
+		if click_manoIzq == true:
+			var izq = Vector2(100,100)
+			manitoIzq.position = manitoIzq.position.move_toward(mouse_pos - izq, 200 * delta)
+			
+			
+	
+		
+	
 
 	
 	# animation
