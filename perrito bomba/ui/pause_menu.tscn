@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmvmp1afsyy60"]
+[gd_scene load_steps=4 format=3 uid="uid://bmvmp1afsyy60"]
 
 [ext_resource type="Script" path="res://ui/pause_menu.gd" id="1_k3jf6"]
+[ext_resource type="FontFile" uid="uid://bf80vg5cqxqb" path="res://Fonts/Chonkly.otf" id="2_70x7j"]
+
+[sub_resource type="Theme" id="Theme_kd63g"]
+default_font = ExtResource("2_70x7j")
 
 [node name="PauseMenu" type="MarginContainer"]
 process_mode = 3
@@ -20,6 +24,7 @@ size_flags_vertical = 4
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_vertical = 4
+theme = SubResource("Theme_kd63g")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -27,20 +32,20 @@ layout_mode = 2
 [node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_type_variation = &"BigLabel"
-text = "Pause"
+text = "Pausa"
 horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Resume"
+text = "Continuar"
 
 [node name="Retry" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Retry"
+text = "Reiniciar Nivel"
 
 [node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Main Menu"
+text = "Menu Principal"
