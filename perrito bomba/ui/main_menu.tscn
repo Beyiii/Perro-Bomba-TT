@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://ui/main_menu.gd" id="1_emf6v"]
 [ext_resource type="PackedScene" uid="uid://bmxwqdgppxexk" path="res://scenes/main.tscn" id="2_o8r4h"]
 [ext_resource type="FontFile" uid="uid://bf80vg5cqxqb" path="res://Fonts/Chonkly.otf" id="3_ij46o"]
-[ext_resource type="Texture2D" path="res://assets/Fonditos/city 4/9.png" id="3_yyfys"]
+[ext_resource type="Texture2D" uid="uid://djwf7cc4l1sis" path="res://assets/Fondos/city 4/9.png" id="4_on1qk"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -52,4 +52,4 @@ layer = -1
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(193, 109)
 scale = Vector2(0.167886, 0.167886)
-texture = ExtResource("3_yyfys")
+texture = ExtResource("4_on1qk")
