@@ -1,17 +1,118 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmxwqdgppxexk"]
+[gd_scene load_steps=17 format=3 uid="uid://bmxwqdgppxexk"]
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="2_0qjm1"]
 [ext_resource type="PackedScene" uid="uid://blq6wn3fq66cx" path="res://scenes/Manos.tscn" id="2_aav1h"]
-[ext_resource type="PackedScene" uid="uid://dtt3yboy7mt58" path="res://mesa_provisoria.tscn" id="3_xnugo"]
+[ext_resource type="PackedScene" path="res://mesa_provisoria.tscn" id="3_xnugo"]
 [ext_resource type="Texture2D" uid="uid://i4eqn277txbe" path="res://assets/Objetos/PNG/Colored/Alicate.png" id="4_f4yiw"]
 [ext_resource type="Texture2D" uid="uid://cvvvl7kimllsh" path="res://assets/Objetos/PNG/Colored/Destornillador.png" id="5_lgcsi"]
 [ext_resource type="Texture2D" uid="uid://ceewa3sxri7wl" path="res://assets/Objetos/PNG/Colored/Llave inglesa.png" id="6_b6fsm"]
+[ext_resource type="Texture2D" uid="uid://b6ssf0ayf8k8w" path="res://assets/perrito.png" id="7_axh1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5bjc"]
 size = Vector2(542.909, 259.085)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8tu7"]
 size = Vector2(71.9995, 111.428)
+
+[sub_resource type="Animation" id="Animation_pt17g"]
+resource_name = "perrito"
+length = 0.25
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_axh1g")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_8rpgq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_axh1g")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pwnro"]
+_data = {
+"RESET": SubResource("Animation_8rpgq"),
+"perrito": SubResource("Animation_pt17g")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jlgtf"]
+animation = &"perrito"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vx6qh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ckl8m"]
+states/perrito/node = SubResource("AnimationNodeAnimation_jlgtf")
+states/perrito/position = Vector2(389, 100)
+transitions = ["Start", "perrito", SubResource("AnimationNodeStateMachineTransition_vx6qh")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_boa6v"]
 
 [node name="Main" type="Node2D"]
 
@@ -29,7 +130,6 @@ metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Capa mesa/Mesa provisoria/Area2D"]
 position = Vector2(-1.6452, 0.835754)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_n5bjc")
 
 [node name="Alicate" type="Sprite2D" parent="Capa mesa"]
@@ -63,3 +163,19 @@ layer = -2
 position = Vector2(195, 110)
 scale = Vector2(0.167187, 0.165278)
 texture = ExtResource("2_0qjm1")
+
+[node name="Perrito" type="Sprite2D" parent="."]
+position = Vector2(61, 134)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("7_axh1g")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Perrito"]
+libraries = {
+"": SubResource("AnimationLibrary_pwnro")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Perrito"]
+tree_root = SubResource("AnimationNodeStateMachine_ckl8m")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_boa6v")

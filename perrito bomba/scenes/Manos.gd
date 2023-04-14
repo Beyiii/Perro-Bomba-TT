@@ -27,8 +27,12 @@ var Enemy = preload("res://scenes/enemy.tscn")
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree_izq = $AnimationTreeManoIzq
 @onready var animation_tree_der = $AnimationTreeManoDer
+@onready var perrito = $"../Perrito/AnimationPlayer"
+@onready var perrito_tree = $"../Perrito/AnimationTree"
+
 @onready var playback_der = animation_tree_der.get("parameters/playback")
 @onready var playback_izq = animation_tree_izq.get("parameters/playback")
+@onready var playback_perrito = perrito_tree.get("parameters/playback")
 
 @onready var manitoDer = $"Manito der"
 @onready var manitoIzq = $"Manito izq"
@@ -41,12 +45,14 @@ var mano_cerrada = false
 func _ready():
 	animation_tree_izq.active = true
 	animation_tree_der.active = true
+	perrito_tree.active = true
 	
 func _process(delta):
 	
 	var mouse_pos = get_global_mouse_position()
 	playback_izq.travel("idleIzq")
 	playback_der.travel("idleDer")
+	playback_perrito.travel("perrito")
 	
 	
 	if Input.is_action_just_pressed("Cambiar_mano"):
