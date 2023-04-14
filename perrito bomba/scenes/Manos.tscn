@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b54tglvul1x3"]
+[gd_scene load_steps=32 format=3 uid="uid://blq6wn3fq66cx"]
 
 [ext_resource type="Script" path="res://scenes/Manos.gd" id="1_krtxt"]
 [ext_resource type="Texture2D" uid="uid://bm55m5rjnbcye" path="res://assets/Manito Quieta.png" id="2_310eh"]
@@ -459,6 +459,7 @@ transitions = ["Start", "idleDer", SubResource("AnimationNodeStateMachineTransit
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cwmfy"]
 
 [node name="Manos" type="CharacterBody2D"]
+collision_mask = 0
 script = ExtResource("1_krtxt")
 metadata/_edit_lock_ = true
 
@@ -470,13 +471,13 @@ shape = SubResource("CapsuleShape2D_g21ud")
 
 [node name="Manito der" type="Sprite2D" parent="."]
 position = Vector2(-2.84217e-14, -1.19209e-07)
-scale = Vector2(0.09, 0.09)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_310eh")
 offset = Vector2(500, 0)
 hframes = 2
 
 [node name="Manito izq" type="Sprite2D" parent="."]
-scale = Vector2(0.09, 0.09)
+scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_310eh")
 offset = Vector2(-500, 0)
 flip_h = true

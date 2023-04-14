@@ -1,29 +1,19 @@
 [gd_scene load_steps=9 format=3 uid="uid://bmxwqdgppxexk"]
 
-[ext_resource type="Texture2D" uid="uid://crmq3vf48yn4w" path="res://icon.svg" id="1_fdxlm"]
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="2_0qjm1"]
-[ext_resource type="PackedScene" uid="uid://b54tglvul1x3" path="res://scenes/Manos.tscn" id="2_aav1h"]
+[ext_resource type="PackedScene" uid="uid://blq6wn3fq66cx" path="res://scenes/Manos.tscn" id="2_aav1h"]
+[ext_resource type="PackedScene" uid="uid://dtt3yboy7mt58" path="res://mesa_provisoria.tscn" id="3_xnugo"]
 [ext_resource type="Texture2D" uid="uid://i4eqn277txbe" path="res://assets/Objetos/PNG/Colored/Alicate.png" id="4_f4yiw"]
-[ext_resource type="Texture2D" uid="uid://d1pkoxkt0rh2h" path="res://assets/Objetos/mesaprovisoria.jpg" id="4_yk8or"]
 [ext_resource type="Texture2D" uid="uid://cvvvl7kimllsh" path="res://assets/Objetos/PNG/Colored/Destornillador.png" id="5_lgcsi"]
 [ext_resource type="Texture2D" uid="uid://ceewa3sxri7wl" path="res://assets/Objetos/PNG/Colored/Llave inglesa.png" id="6_b6fsm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_56t5d"]
-size = Vector2(128, 124.444)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5bjc"]
+size = Vector2(542.909, 259.085)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8tu7"]
+size = Vector2(71.9995, 111.428)
 
 [node name="Main" type="Node2D"]
-
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(108, -81)
-scale = Vector2(1, 0.28125)
-texture = ExtResource("1_fdxlm")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Icon"]
-position = Vector2(0, -3.55554)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/StaticBody2D"]
-position = Vector2(0, 1.77777)
-shape = SubResource("RectangleShape2D_56t5d")
 
 [node name="Manos" parent="." instance=ExtResource("2_aav1h")]
 position = Vector2(263, 125)
@@ -31,15 +21,30 @@ position = Vector2(263, 125)
 [node name="Capa mesa" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Mesa provisoria" type="Sprite2D" parent="Capa mesa"]
-position = Vector2(199, 95)
-scale = Vector2(0.607837, 0.598259)
-texture = ExtResource("4_yk8or")
+[node name="Mesa provisoria" parent="Capa mesa" instance=ExtResource("3_xnugo")]
+position = Vector2(192, 91)
+metadata/_edit_group_ = true
+
+[node name="Area2D" type="Area2D" parent="Capa mesa/Mesa provisoria"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Capa mesa/Mesa provisoria/Area2D"]
+position = Vector2(-1.6452, 0.835754)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_n5bjc")
 
 [node name="Alicate" type="Sprite2D" parent="Capa mesa"]
 position = Vector2(80, 64)
-scale = Vector2(0.583338, 0.583338)
+scale = Vector2(0.746325, 0.516177)
 texture = ExtResource("4_f4yiw")
+metadata/_edit_group_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Capa mesa/Alicate"]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Capa mesa/Alicate/CharacterBody2D"]
+position = Vector2(3.42859, 4.28568)
+shape = SubResource("RectangleShape2D_w8tu7")
 
 [node name="Destornillador" type="Sprite2D" parent="Capa mesa"]
 position = Vector2(325, 56)
@@ -55,6 +60,6 @@ texture = ExtResource("6_b6fsm")
 layer = -2
 
 [node name="Fondo" type="Sprite2D" parent="Capa Fondo"]
-position = Vector2(193, 110)
-scale = Vector2(0.153906, 0.158333)
+position = Vector2(195, 110)
+scale = Vector2(0.167187, 0.165278)
 texture = ExtResource("2_0qjm1")
