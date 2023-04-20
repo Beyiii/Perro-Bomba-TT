@@ -6,13 +6,52 @@
 [ext_resource type="Texture2D" uid="uid://i4eqn277txbe" path="res://assets/Objetos/PNG/Colored/Alicate.png" id="4_f4yiw"]
 [ext_resource type="Texture2D" uid="uid://cvvvl7kimllsh" path="res://assets/Objetos/PNG/Colored/Destornillador.png" id="5_lgcsi"]
 [ext_resource type="Texture2D" uid="uid://ceewa3sxri7wl" path="res://assets/Objetos/PNG/Colored/Llave inglesa.png" id="6_b6fsm"]
-[ext_resource type="Texture2D" uid="uid://b6ssf0ayf8k8w" path="res://assets/perrito.png" id="7_axh1g"]
+[ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="7_cg6je"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5bjc"]
 size = Vector2(542.909, 259.085)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8tu7"]
 size = Vector2(71.9995, 111.428)
+
+[sub_resource type="Animation" id="Animation_8rpgq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_cg6je")]
+}
 
 [sub_resource type="Animation" id="Animation_pt17g"]
 resource_name = "perrito"
@@ -29,7 +68,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_axh1g")]
+"values": [ExtResource("7_cg6je")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -54,45 +93,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_8rpgq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_axh1g")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pwnro"]
@@ -165,9 +165,9 @@ scale = Vector2(0.167187, 0.165278)
 texture = ExtResource("2_0qjm1")
 
 [node name="Perrito" type="Sprite2D" parent="."]
-position = Vector2(61, 134)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("7_axh1g")
+position = Vector2(53, 144)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("7_cg6je")
 hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Perrito"]

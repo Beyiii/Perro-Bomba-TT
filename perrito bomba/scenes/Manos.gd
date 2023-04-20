@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 """
 const SPEED = 0
 const JUMP_VELOCITY = -200.0
@@ -37,15 +36,20 @@ var Enemy = preload("res://scenes/enemy.tscn")
 @onready var manitoDer = $"Manito der"
 @onready var manitoIzq = $"Manito izq"
 
+
 var click_manoDer = false
 var click_manoIzq = true
 var click_manos = true
-var mano_cerrada = false
+
+var scale_factor = 1.05  # El factor de escala que se usará para aumentar el tamaño.
+var max_scale = 0.15  # El tamaño máximo que el Sprite2D puede alcanzar.
+var min_scale = 0.05 # El tamaño mínimo que el Sprite2D puede alcanzar.
 
 func _ready():
 	animation_tree_izq.active = true
 	animation_tree_der.active = true
 	perrito_tree.active = true
+
 	
 func _process(delta):
 	
@@ -55,46 +59,85 @@ func _process(delta):
 	playback_perrito.travel("perrito")
 	
 	
+	
+	
 	if Input.is_action_just_pressed("Cambiar_mano"):
 		click_manos = false
 		click_manoDer = not click_manoDer
 		click_manoIzq = not click_manoIzq
-		
-		
+
+
 	if Input.is_action_just_pressed("Ambas_manos"):
 		click_manos = true
 		
-	if Input.is_action_pressed("Dedo_1"):
-		mano_cerrada = true
+	#Aleja la mano de la mesa
+	if Input.is_action_just_released("Alejar"):
+		if click_manoIzq == true and click_manos == false:
+			if manitoIzq.scale.x > min_scale and manitoIzq.scale.y > min_scale: 
+				manitoIzq.scale /= scale_factor 
+			
+		if click_manoDer == true and click_manos == false:
+			if manitoDer.scale.x > min_scale and manitoDer.scale.y > min_scale:  
+				manitoDer.scale /= scale_factor  
+		
+	#Acerca la mano a la mesa
+	if Input.is_action_just_released("Acercar"):
+		if click_manoIzq == true and click_manos == false:
+			if manitoIzq.scale.x < max_scale and manitoIzq.scale.y < max_scale: 
+				manitoIzq.scale *= scale_factor 
+			
+		if click_manoDer == true and click_manos == false:
+			if manitoDer.scale.x < max_scale and manitoDer.scale.y < max_scale:  
+				manitoDer.scale *= scale_factor  
+		
+		
+	#Cierra toda la mano
+	if Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and Input.is_action_pressed("Dedo_3") and Input.is_action_pressed("Dedo_4"):
 		if click_manoIzq == true and click_manos == false:
 			playback_izq.travel("CerrarIzq")
 			
-		if click_manoDer == true:
+		if click_manoDer == true and click_manos == false:
 			playback_der.travel("CerrarDer")
 			
-	if not Input.is_action_pressed("Dedo_1") and mano_cerrada:
-		if click_manoIzq == true:
-			playback_izq.travel("CerrarIzq")
-			mano_cerrada = false
+	#Cierra los dos primeros dedos
+	if Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and !(Input.is_action_pressed("Dedo_3") or Input.is_action_pressed("Dedo_4")):
+		if click_manoIzq == true and click_manos == false:
+			playback_izq.travel("IzquierdosCerrarIzq")
 			
-		if click_manoDer == true:
-			playback_der.travel("CerrarDer")
-			mano_cerrada = false
+		if click_manoDer == true and click_manos == false:
+			playback_der.travel("IzquierdosCerrarDer")
 			
-		
+	#Cierra los dos dedos del medio
+	if Input.is_action_pressed("Dedo_2") and Input.is_action_pressed("Dedo_3") and !(Input.is_action_pressed("Dedo_1") or Input.is_action_pressed("Dedo_4")):
+		if click_manoIzq == true and click_manos == false:
+			playback_izq.travel("MediosCerrarIzq")
+			
+		if click_manoDer == true and click_manos == false:
+			playback_der.travel("MediosCerrarDer")
+			
+	#Cierra los dos ultimos dedos 
+	if Input.is_action_pressed("Dedo_3") and Input.is_action_pressed("Dedo_4") and !(Input.is_action_pressed("Dedo_1") or Input.is_action_pressed("Dedo_2")):
+		if click_manoIzq == true and click_manos == false:
+			playback_izq.travel("DerechosCerrarIzq")
+			
+		if click_manoDer == true and click_manos == false:
+			playback_der.travel("DerechosCerrarDer")
 		
 	if click_manos == true:
-		self.position = self.position.move_toward(mouse_pos, 200 * delta)
+		self.position = self.position.move_toward(mouse_pos, 400 * delta)
+	
 		
 	if click_manos == false:
 		if click_manoDer == true:
-			var der = Vector2(305,100)
-			manitoDer.position = manitoDer.position.move_toward(mouse_pos - der, 400* delta)
+			#var der = Vector2(305,100)
+			var der = Vector2(40,0)
+			manitoDer.position = manitoDer.position.move_toward(mouse_pos - self.position - der, 400* delta)
+	
 		
 		if click_manoIzq == true:
-			var izq = Vector2(100,100)
-			manitoIzq.position = manitoIzq.position.move_toward(mouse_pos - izq, 200 * delta)
-			
+			var izq = Vector2(-40,0)
+			manitoIzq.position = manitoIzq.position.move_toward(mouse_pos - self.position - izq, 400 * delta)
+	
 			
 	
 		

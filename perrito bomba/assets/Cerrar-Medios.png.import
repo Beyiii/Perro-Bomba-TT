@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6ssf0ayf8k8w"
-path="res://.godot/imported/perrito.png-fecddf2ad885f2f5366e06c8a236efee.ctex"
+uid="uid://8cmbkba2iecl"
+path="res://.godot/imported/Cerrar-Medios.png-c6c3186b0947b07a2e54fb22478893e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/perrito.png"
-dest_files=["res://.godot/imported/perrito.png-fecddf2ad885f2f5366e06c8a236efee.ctex"]
+source_file="res://assets/Cerrar-Medios.png"
+dest_files=["res://.godot/imported/Cerrar-Medios.png-c6c3186b0947b07a2e54fb22478893e1.ctex"]
 
 [params]
 
