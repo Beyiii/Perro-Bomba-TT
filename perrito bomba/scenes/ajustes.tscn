@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://egucuyhca65w"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_03ie4"]
+[ext_resource type="AudioStream" uid="uid://b1ojtuyo3u4lm" path="res://assets/Musik/Adventures of Flying Jack.mp3" id="2_5x8e5"]
+[ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="2_qgo76"]
+[ext_resource type="Texture2D" uid="uid://djwf7cc4l1sis" path="res://assets/Fondos/city 4/9.png" id="4_ufogr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_euckv"]
+font_size = 25
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_03ie4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_qgo76")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Ajustes" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Ajustes"
+label_settings = SubResource("LabelSettings_euckv")
+horizontal_alignment = 1
+
+[node name="Volumen General" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "General"
+horizontal_alignment = 1
+
+[node name="Volumen general" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Musica" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Musica
+"
+horizontal_alignment = 1
+
+[node name="Volumen musica" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+min_value = -30.0
+max_value = 10.0
+
+[node name="Volver al menu" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Volver al Menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_5x8e5")
+autoplay = true
+bus = &"Musica"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(193, 109)
+scale = Vector2(0.167886, 0.167886)
+texture = ExtResource("4_ufogr")
+
+[connection signal="value_changed" from="MarginContainer/PanelContainer/VBoxContainer/Volumen general" to="." method="_on_volumen_general_value_changed"]
+[connection signal="value_changed" from="MarginContainer/PanelContainer/VBoxContainer/Volumen musica" to="." method="_on_h_slider_value_changed"]

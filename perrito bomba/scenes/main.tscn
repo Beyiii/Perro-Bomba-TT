@@ -179,3 +179,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_ckl8m")
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_boa6v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"Musica"

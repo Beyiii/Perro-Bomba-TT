@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmvmp1afsyy60"]
+[gd_scene load_steps=5 format=3 uid="uid://bmvmp1afsyy60"]
 
 [ext_resource type="Script" path="res://ui/pause_menu.gd" id="1_k3jf6"]
 [ext_resource type="FontFile" uid="uid://bf80vg5cqxqb" path="res://Fonts/Chonkly.otf" id="2_70x7j"]
 
 [sub_resource type="Theme" id="Theme_kd63g"]
 default_font = ExtResource("2_70x7j")
+
+[sub_resource type="LabelSettings" id="LabelSettings_p4w5s"]
+font_size = 25
 
 [node name="PauseMenu" type="MarginContainer"]
 process_mode = 3
@@ -33,12 +36,19 @@ layout_mode = 2
 layout_mode = 2
 theme_type_variation = &"BigLabel"
 text = "Pausa"
+label_settings = SubResource("LabelSettings_p4w5s")
 horizontal_alignment = 1
 
 [node name="Resume" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Continuar"
+
+[node name="Ajustes" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Ajustes
+"
 
 [node name="Retry" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
