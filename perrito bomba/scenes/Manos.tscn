@@ -1201,6 +1201,7 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cwmfy")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("7_pwvj6")]
+visible = false
 offset_left = 1.0
 offset_top = -4.0
 offset_right = 1.0

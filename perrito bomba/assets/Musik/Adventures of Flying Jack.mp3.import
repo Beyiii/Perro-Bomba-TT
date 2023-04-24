@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1ojtuyo3u4lm"
+path="res://.godot/imported/Adventures of Flying Jack.mp3-1a155d798d9c8615e2ae4c8fbd33738a.mp3str"
+
+[deps]
+
+source_file="res://assets/Musik/Adventures of Flying Jack.mp3"
+dest_files=["res://.godot/imported/Adventures of Flying Jack.mp3-1a155d798d9c8615e2ae4c8fbd33738a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://o6lf3kajhvvt"]
+
+[ext_resource type="FontFile" uid="uid://bf80vg5cqxqb" path="res://Fonts/Chonkly.otf" id="1_o8q5k"]
+
+[resource]
+default_font = ExtResource("1_o8q5k")
