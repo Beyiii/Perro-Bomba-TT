@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="2_0qjm1"]
 [ext_resource type="PackedScene" uid="uid://blq6wn3fq66cx" path="res://scenes/Manos.tscn" id="2_aav1h"]
-[ext_resource type="PackedScene" path="res://mesa_provisoria.tscn" id="3_xnugo"]
+[ext_resource type="PackedScene" uid="uid://dtt3yboy7mt58" path="res://mesa_provisoria.tscn" id="3_xnugo"]
 [ext_resource type="Texture2D" uid="uid://i4eqn277txbe" path="res://assets/Objetos/PNG/Colored/Alicate.png" id="4_f4yiw"]
 [ext_resource type="Texture2D" uid="uid://cvvvl7kimllsh" path="res://assets/Objetos/PNG/Colored/Destornillador.png" id="5_lgcsi"]
 [ext_resource type="Texture2D" uid="uid://ceewa3sxri7wl" path="res://assets/Objetos/PNG/Colored/Llave inglesa.png" id="6_b6fsm"]
