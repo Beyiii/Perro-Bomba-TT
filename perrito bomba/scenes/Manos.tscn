@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://blq6wn3fq66cx"]
+[gd_scene load_steps=81 format=3 uid="uid://blq6wn3fq66cx"]
 
 [ext_resource type="Script" path="res://scenes/Manos.gd" id="1_krtxt"]
 [ext_resource type="Texture2D" uid="uid://bm55m5rjnbcye" path="res://assets/Manito Quieta.png" id="2_310eh"]
@@ -13,6 +13,12 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g21ud"]
 radius = 6.0
 height = 34.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_culj0"]
+radius = 17.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uld8p"]
+radius = 17.5
 
 [sub_resource type="Animation" id="Animation_4bos5"]
 resource_name = "AbrirDer"
@@ -1164,6 +1170,8 @@ graph_offset = Vector2(0, -13.8201)
 collision_mask = 0
 script = ExtResource("1_krtxt")
 metadata/_edit_lock_ = true
+metadata/_edit_vertical_guides_ = []
+metadata/_edit_horizontal_guides_ = [-21.0]
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -1176,12 +1184,38 @@ texture = ExtResource("2_310eh")
 offset = Vector2(500, 0)
 hframes = 2
 
+[node name="MarkerDer" type="Marker2D" parent="Manito der"]
+position = Vector2(475, -262.5)
+scale = Vector2(12.5, 12.5)
+
+[node name="PickableAreaDer" type="Area2D" parent="Manito der"]
+scale = Vector2(12.5, 12.5)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Manito der/PickableAreaDer"]
+position = Vector2(38, -21)
+shape = SubResource("CircleShape2D_culj0")
+
 [node name="Manito izq" type="Sprite2D" parent="."]
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_310eh")
 offset = Vector2(-500, 0)
 flip_h = true
 hframes = 2
+
+[node name="MarkerIzq" type="Marker2D" parent="Manito izq"]
+position = Vector2(-475, -262.5)
+scale = Vector2(12.5, 12.5)
+
+[node name="PickableAreaIzq" type="Area2D" parent="Manito izq"]
+scale = Vector2(12.5, 12.5)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Manito izq/PickableAreaIzq"]
+position = Vector2(-38, -21)
+shape = SubResource("CircleShape2D_uld8p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

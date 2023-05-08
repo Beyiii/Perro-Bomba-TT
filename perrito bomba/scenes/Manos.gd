@@ -1,26 +1,5 @@
 extends CharacterBody2D
 
-"""
-const SPEED = 0
-const JUMP_VELOCITY = -200.0
-const GRAVITY = 400
-const ACCELERATION = 0
-
-const MAX_JUMP_TIME = 0.2
-const MAX_AIRBORNE_TIME = 0.1
-
-var current_jump_time = 0
-var current_airborne_time = 0
-var jumping = false
-
-var Enemy = preload("res://scenes/enemy.tscn")
-
-@onready var pivot = $Pivot
-@onready var animation_player = $AnimationPlayer
-@onready var animation_tree = $AnimationTree
-@onready var playback = animation_tree.get("parameters/playback")
-
-"""
 
 @onready var pivot = $Pivot
 @onready var animation_player = $AnimationPlayer
@@ -28,6 +7,9 @@ var Enemy = preload("res://scenes/enemy.tscn")
 @onready var animation_tree_der = $AnimationTreeManoDer
 @onready var perrito = $"../Perrito/AnimationPlayer"
 @onready var perrito_tree = $"../Perrito/AnimationTree"
+@onready var marker_der = $"Manito der/MarkerDer"
+@onready var pickable_area_der = $"Manito der/PickableAreaDer"
+
 
 @onready var playback_der = animation_tree_der.get("parameters/playback")
 @onready var playback_izq = animation_tree_izq.get("parameters/playback")
@@ -39,9 +21,8 @@ var Enemy = preload("res://scenes/enemy.tscn")
 enum MANOS {AMBAS, IZQ, DER}
 var mano_actual = MANOS.AMBAS
 
-var click_manoDer = false
-var click_manoIzq = true
-var click_manos = true
+var pickable: Pickable = null
+var grabbed = false
 
 var scale_factor = 1.05  # El factor de escala que se usará para aumentar el tamaño.
 var max_scale = 0.15  # El tamaño máximo que el Sprite2D puede alcanzar.
@@ -51,7 +32,8 @@ func _ready():
 	animation_tree_izq.active = true
 	animation_tree_der.active = true
 	perrito_tree.active = true
-
+	pickable_area_der.body_entered.connect(_on_pickable_enter)
+	
 	
 func _process(delta):
 	
@@ -61,91 +43,116 @@ func _process(delta):
 	playback_perrito.travel("perrito")
 	
 	
-	
-	
 	if Input.is_action_just_pressed("Cambiar_mano"):
-		click_manos = false
-		click_manoDer = not click_manoDer
-		click_manoIzq = not click_manoIzq
-
+		if mano_actual == MANOS.AMBAS:
+			mano_actual = MANOS.DER
+			
+		elif mano_actual == MANOS.IZQ:
+			mano_actual = MANOS.DER
+			
+		else:
+			mano_actual = MANOS.IZQ
 
 	if Input.is_action_just_pressed("Ambas_manos"):
-		click_manos = true
+		mano_actual = MANOS.AMBAS
 		
 	#Aleja la mano de la mesa
 	if Input.is_action_just_released("Alejar"):
-		if click_manoIzq == true and click_manos == false:
+		if mano_actual == MANOS.IZQ:
 			if manitoIzq.scale.x > min_scale and manitoIzq.scale.y > min_scale: 
 				manitoIzq.scale /= scale_factor 
 			
-		if click_manoDer == true and click_manos == false:
+		if mano_actual == MANOS.DER:
 			if manitoDer.scale.x > min_scale and manitoDer.scale.y > min_scale:  
+				manitoDer.scale /= scale_factor  
+				
+		else: 
+			if manitoIzq.scale.x > min_scale and manitoIzq.scale.y > min_scale and manitoDer.scale.x > min_scale and manitoDer.scale.y > min_scale: 
+				manitoIzq.scale /= scale_factor 
 				manitoDer.scale /= scale_factor  
 		
 	#Acerca la mano a la mesa
 	if Input.is_action_just_released("Acercar"):
-		if click_manoIzq == true and click_manos == false:
+		if mano_actual == MANOS.IZQ:
 			if manitoIzq.scale.x < max_scale and manitoIzq.scale.y < max_scale: 
 				manitoIzq.scale *= scale_factor 
 			
-		if click_manoDer == true and click_manos == false:
+		if mano_actual == MANOS.DER:
 			if manitoDer.scale.x < max_scale and manitoDer.scale.y < max_scale:  
 				manitoDer.scale *= scale_factor  
+				
+		else:
+			if manitoIzq.scale.x < max_scale and manitoIzq.scale.y < max_scale and manitoDer.scale.x < max_scale and manitoDer.scale.y < max_scale:
+				manitoIzq.scale *= scale_factor 
+				manitoDer.scale *= scale_factor
 		
 		
 	#Cierra toda la mano
 	if Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and Input.is_action_pressed("Dedo_3") and Input.is_action_pressed("Dedo_4"):
-		if click_manoIzq == true and click_manos == false:
+		if mano_actual == MANOS.IZQ:
 			playback_izq.travel("CerrarIzq")
 			
-		if click_manoDer == true and click_manos == false:
+		if mano_actual == MANOS.DER:
 			playback_der.travel("CerrarDer")
-			
-			
-			
+			grabbed = true
+			pickable.freeze = grabbed
+		
+	if !(Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and Input.is_action_pressed("Dedo_3") and Input.is_action_pressed("Dedo_4")):
+		grabbed = false
+		
+	if pickable and grabbed:
+		#pickable.global_position = lerp(pickable.global_position, marker_der.global_position, 0.1)
+		pickable.global_position = lerp(pickable.global_position, marker_der.global_position, 1)
+		
 	#Cierra los dos primeros dedos
 	if Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and !(Input.is_action_pressed("Dedo_3") or Input.is_action_pressed("Dedo_4")):
-		if click_manoIzq == true and click_manos == false:
+		if mano_actual == MANOS.IZQ:
 			playback_izq.travel("IzquierdosCerrarIzq")
 			
-		if click_manoDer == true and click_manos == false:
+		if mano_actual == MANOS.DER:
 			playback_der.travel("IzquierdosCerrarDer")
 			
 	#Cierra los dos dedos del medio
 	if Input.is_action_pressed("Dedo_2") and Input.is_action_pressed("Dedo_3") and !(Input.is_action_pressed("Dedo_1") or Input.is_action_pressed("Dedo_4")):
-		if click_manoIzq == true and click_manos == false:
+		if mano_actual == MANOS.IZQ:
 			playback_izq.travel("MediosCerrarIzq")
 			
-		if click_manoDer == true and click_manos == false:
+		if mano_actual == MANOS.DER:
 			playback_der.travel("MediosCerrarDer")
 			
 	#Cierra los dos ultimos dedos 
 	if Input.is_action_pressed("Dedo_3") and Input.is_action_pressed("Dedo_4") and !(Input.is_action_pressed("Dedo_1") or Input.is_action_pressed("Dedo_2")):
-		if click_manoIzq == true and click_manos == false:
+		if mano_actual == MANOS.IZQ:
 			playback_izq.travel("DerechosCerrarIzq")
 			
-		if click_manoDer == true and click_manos == false:
+		if mano_actual == MANOS.DER:
 			playback_der.travel("DerechosCerrarDer")
 			
 			
 		
-	if click_manos == true:
+	if mano_actual == MANOS.AMBAS:
 		self.position = self.position.move_toward(mouse_pos, 400 * delta)
 	
 		
-	if click_manos == false:
-		if click_manoDer == true:
-			#var der = Vector2(305,100)
-			var der = Vector2(40,0)
-			manitoDer.position = manitoDer.position.move_toward(mouse_pos - self.position - der, 400* delta)
+	if mano_actual == MANOS.DER:
+		var der = Vector2(40,0)
+		manitoDer.position = manitoDer.position.move_toward(mouse_pos - self.position - der, 400* delta)
 	
 		
-		if click_manoIzq == true:
-			var izq = Vector2(-40,0)
-			manitoIzq.position = manitoIzq.position.move_toward(mouse_pos - self.position - izq, 400 * delta)
+	if mano_actual == MANOS.IZQ:
+		var izq = Vector2(-40,0)
+		manitoIzq.position = manitoIzq.position.move_toward(mouse_pos - self.position - izq, 400 * delta)
 	
 			
-	
+func _on_pickable_enter(body: Node):
+	if body is Pickable:
+		pickable = body
+
+
+#func _on_pickable_exit(body: Node):
+#	if body == pickable and not grabbed:
+#		pickable = null
+		
 		
 	
 

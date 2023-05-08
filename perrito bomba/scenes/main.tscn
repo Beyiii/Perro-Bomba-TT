@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmxwqdgppxexk"]
+[gd_scene load_steps=18 format=3 uid="uid://bmxwqdgppxexk"]
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="2_0qjm1"]
 [ext_resource type="PackedScene" uid="uid://blq6wn3fq66cx" path="res://scenes/Manos.tscn" id="2_aav1h"]
-[ext_resource type="PackedScene" uid="uid://dtt3yboy7mt58" path="res://mesa_provisoria.tscn" id="3_xnugo"]
+[ext_resource type="PackedScene" path="res://mesa_provisoria.tscn" id="3_xnugo"]
 [ext_resource type="Texture2D" uid="uid://i4eqn277txbe" path="res://assets/Objetos/PNG/Colored/Alicate.png" id="4_f4yiw"]
 [ext_resource type="Texture2D" uid="uid://cvvvl7kimllsh" path="res://assets/Objetos/PNG/Colored/Destornillador.png" id="5_lgcsi"]
+[ext_resource type="PackedScene" uid="uid://fnwsa6ogtucx" path="res://scenes/cuchillo_cartonero.tscn" id="6_6k2k4"]
 [ext_resource type="Texture2D" uid="uid://ceewa3sxri7wl" path="res://assets/Objetos/PNG/Colored/Llave inglesa.png" id="6_b6fsm"]
 [ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="7_cg6je"]
 
@@ -155,6 +156,9 @@ texture = ExtResource("5_lgcsi")
 position = Vector2(184, 56)
 scale = Vector2(0.621048, 0.621048)
 texture = ExtResource("6_b6fsm")
+
+[node name="CuchilloCartonero" parent="Capa mesa" instance=ExtResource("6_6k2k4")]
+position = Vector2(259, 62)
 
 [node name="Capa Fondo" type="CanvasLayer" parent="."]
 layer = -2
