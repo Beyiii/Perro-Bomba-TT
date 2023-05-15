@@ -7,8 +7,13 @@ extends CharacterBody2D
 @onready var animation_tree_der = $AnimationTreeManoDer
 @onready var perrito = $"../Perrito/AnimationPlayer"
 @onready var perrito_tree = $"../Perrito/AnimationTree"
+
 @onready var marker_der = $"Manito der/MarkerDer"
+@onready var marker_izq = $"Manito izq/MarkerIzq"
+
 @onready var pickable_area_der = $"Manito der/PickableAreaDer"
+@onready var collision_shape_2d = $"Manito izq/PickableAreaIzq/CollisionShape2D"
+
 
 
 @onready var playback_der = animation_tree_der.get("parameters/playback")
@@ -91,6 +96,8 @@ func _process(delta):
 	if Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and Input.is_action_pressed("Dedo_3") and Input.is_action_pressed("Dedo_4"):
 		if mano_actual == MANOS.IZQ:
 			playback_izq.travel("CerrarIzq")
+			grabbed = true
+			pickable.freeze = grabbed
 			
 		if mano_actual == MANOS.DER:
 			playback_der.travel("CerrarDer")
@@ -102,7 +109,12 @@ func _process(delta):
 		
 	if pickable and grabbed:
 		#pickable.global_position = lerp(pickable.global_position, marker_der.global_position, 0.1)
-		pickable.global_position = lerp(pickable.global_position, marker_der.global_position, 1)
+		if mano_actual == MANOS.IZQ:
+			pickable.global_position = lerp(pickable.global_position, marker_izq.global_position, 1)
+			
+		if mano_actual == MANOS.DER:
+			pickable.global_position = lerp(pickable.global_position, marker_der.global_position, 1)
+		
 		
 	#Cierra los dos primeros dedos
 	if Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and !(Input.is_action_pressed("Dedo_3") or Input.is_action_pressed("Dedo_4")):
