@@ -23,10 +23,6 @@ extends CharacterBody2D
 @onready var manitoDer = $"Manito der"
 @onready var manitoIzq = $"Manito izq"
 
-@onready var timer = $"../Timer"
-@onready var contador = $"../ColorRect/Contador"
-
-var Tiempo = 30
 
 enum MANOS {AMBAS, IZQ, DER}
 var mano_actual = MANOS.AMBAS
@@ -44,12 +40,9 @@ func _ready():
 	animation_tree_der.active = true
 	perrito_tree.active = true
 	pickable_area_der.body_entered.connect(_on_pickable_enter)
-	timer.set_wait_time(0)
-	timer.start()
 	
 	
 func _process(delta):
-	contador.set_text(str(Tiempo))
 	
 	var mouse_pos = get_global_mouse_position()
 	playback_izq.travel("idleIzq")
@@ -181,9 +174,3 @@ func _on_pickable_enter(body: Node):
 
 		
 		
-
-
-func _on_timer_timeout():
-	Tiempo -=1
-	if Tiempo ==0:
-		get_tree().change_scene_to_file("res://scenes/fuiste_weno.tscn")

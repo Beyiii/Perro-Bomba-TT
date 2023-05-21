@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmxwqdgppxexk"]
+[gd_scene load_steps=20 format=3 uid="uid://bmxwqdgppxexk"]
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="2_0qjm1"]
 [ext_resource type="PackedScene" uid="uid://blq6wn3fq66cx" path="res://scenes/Manos.tscn" id="2_aav1h"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://fnwsa6ogtucx" path="res://scenes/cuchillo_cartonero.tscn" id="6_6k2k4"]
 [ext_resource type="Texture2D" uid="uid://ceewa3sxri7wl" path="res://assets/Objetos/PNG/Colored/Llave inglesa.png" id="6_b6fsm"]
 [ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="7_cg6je"]
+[ext_resource type="FontFile" uid="uid://sxad1nenyp83" path="res://assets/Font/AlphaProta.otf" id="9_78x2q"]
+[ext_resource type="Script" path="res://scenes/Timer.gd" id="9_qyfhd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n5bjc"]
 size = Vector2(542.909, 259.085)
@@ -188,17 +190,22 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_boa6v")
 bus = &"Musica"
 
 [node name="Timer" type="Timer" parent="."]
+script = ExtResource("9_qyfhd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 116.0
-offset_top = 169.0
-offset_right = 156.0
-offset_bottom = 209.0
+offset_left = 108.0
+offset_top = 187.0
+offset_right = 167.0
+offset_bottom = 214.0
 color = Color(0, 0, 0, 1)
 
 [node name="Contador" type="Label" parent="ColorRect"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 59.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("9_78x2q")
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[connection signal="timeout" from="Timer" to="Manos" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]
