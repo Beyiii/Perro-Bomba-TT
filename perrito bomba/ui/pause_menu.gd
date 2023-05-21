@@ -3,13 +3,12 @@ extends MarginContainer
 @onready var resume = %Resume
 @onready var retry = %Retry
 @onready var exit = %Exit
-@onready var ajustes = %Ajustes
+
 
 func _ready():
 	resume.pressed.connect(_on_resume_pressed)
 	retry.pressed.connect(_on_retry_pressed)
 	exit.pressed.connect(_on_exit_pressed)
-	ajustes.pressed.connect(_ir_ajustes)
 	hide()
 
 
@@ -33,7 +32,3 @@ func _on_exit_pressed():
 	get_tree().change_scene_to_file("res://ui/main_menu.tscn")
 	get_tree().paused = false
 
-
-func _ir_ajustes():
-	get_tree().change_scene_to_file("res://scenes/ajustes.tscn")
-	get_tree().paused = false

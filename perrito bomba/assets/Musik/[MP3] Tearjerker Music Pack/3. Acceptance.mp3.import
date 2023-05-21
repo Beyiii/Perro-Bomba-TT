@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1uv70xch6g6k"
+path="res://.godot/imported/3. Acceptance.mp3-c8ddad190d27bf721d7e8c2b7ce2297e.mp3str"
+
+[deps]
+
+source_file="res://assets/Musik/[MP3] Tearjerker Music Pack/3. Acceptance.mp3"
+dest_files=["res://.godot/imported/3. Acceptance.mp3-c8ddad190d27bf721d7e8c2b7ce2297e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -186,3 +186,19 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_boa6v")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 bus = &"Musica"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 116.0
+offset_top = 169.0
+offset_right = 156.0
+offset_bottom = 209.0
+color = Color(0, 0, 0, 1)
+
+[node name="Contador" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="timeout" from="Timer" to="Manos" method="_on_timer_timeout"]

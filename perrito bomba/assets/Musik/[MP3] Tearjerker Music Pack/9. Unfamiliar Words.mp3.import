@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt1gm1hod7qj5"
+path="res://.godot/imported/9. Unfamiliar Words.mp3-f0ba9302d6d3924fec672eac86e8e1de.mp3str"
+
+[deps]
+
+source_file="res://assets/Musik/[MP3] Tearjerker Music Pack/9. Unfamiliar Words.mp3"
+dest_files=["res://.godot/imported/9. Unfamiliar Words.mp3-f0ba9302d6d3924fec672eac86e8e1de.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

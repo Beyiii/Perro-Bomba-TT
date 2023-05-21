@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://clgmjty2m6uci"
+path="res://.godot/imported/8. Melody of the Soul.mp3-1b9d3eff55f4642246632a96a1d2f11b.mp3str"
+
+[deps]
+
+source_file="res://assets/Musik/[MP3] Tearjerker Music Pack/8. Melody of the Soul.mp3"
+dest_files=["res://.godot/imported/8. Melody of the Soul.mp3-1b9d3eff55f4642246632a96a1d2f11b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

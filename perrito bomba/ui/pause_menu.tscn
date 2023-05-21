@@ -44,12 +44,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Continuar"
 
-[node name="Ajustes" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Ajustes
-"
-
 [node name="Retry" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
