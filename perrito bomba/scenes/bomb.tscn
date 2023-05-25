@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2r8v2je7npa5"]
+
+[ext_resource type="Texture2D" uid="uid://bf48ejdaema0d" path="res://assets/bomb.png" id="1_a0nj6"]
+[ext_resource type="Texture2D" uid="uid://2oj5jfelm8j0" path="res://assets/cable-AZ.png" id="1_ip7hs"]
+[ext_resource type="Texture2D" uid="uid://coomqtu7vrhwr" path="res://assets/cableA.png" id="2_yq1rd"]
+
+[node name="Bomb" type="Node2D"]
+
+[node name="cable1" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_ip7hs")
+
+[node name="cable2" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_yq1rd")
+
+[node name="bomba" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_a0nj6")
