@@ -1,21 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://bmxwqdgppxexk"]
+[gd_scene load_steps=17 format=3 uid="uid://bmxwqdgppxexk"]
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="2_0qjm1"]
 [ext_resource type="PackedScene" uid="uid://blq6wn3fq66cx" path="res://scenes/Manos.tscn" id="2_aav1h"]
-[ext_resource type="PackedScene" uid="uid://dtt3yboy7mt58" path="res://mesa_provisoria.tscn" id="3_xnugo"]
-[ext_resource type="Texture2D" uid="uid://i4eqn277txbe" path="res://assets/Objetos/PNG/Colored/Alicate.png" id="4_f4yiw"]
-[ext_resource type="Texture2D" uid="uid://cvvvl7kimllsh" path="res://assets/Objetos/PNG/Colored/Destornillador.png" id="5_lgcsi"]
+[ext_resource type="Texture2D" uid="uid://c081xvos02dll" path="res://assets/mesa.jpg" id="2_kc6m6"]
 [ext_resource type="PackedScene" uid="uid://fnwsa6ogtucx" path="res://scenes/cuchillo_cartonero.tscn" id="6_6k2k4"]
-[ext_resource type="Texture2D" uid="uid://ceewa3sxri7wl" path="res://assets/Objetos/PNG/Colored/Llave inglesa.png" id="6_b6fsm"]
 [ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="7_cg6je"]
+[ext_resource type="PackedScene" uid="uid://n6uvhl86ihwh" path="res://scenes/alicate.tscn" id="8_wgo1q"]
 [ext_resource type="FontFile" uid="uid://sxad1nenyp83" path="res://assets/Font/AlphaProta.otf" id="9_78x2q"]
 [ext_resource type="Script" path="res://scenes/Timer.gd" id="9_qyfhd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n5bjc"]
-size = Vector2(542.909, 259.085)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8tu7"]
-size = Vector2(71.9995, 111.428)
+[ext_resource type="PackedScene" uid="uid://deui4pyfk7ayl" path="res://scenes/cuchillo_mantequilla.tscn" id="9_t4fd2"]
 
 [sub_resource type="Animation" id="Animation_8rpgq"]
 length = 0.001
@@ -120,53 +113,32 @@ transitions = ["Start", "perrito", SubResource("AnimationNodeStateMachineTransit
 [node name="Main" type="Node2D"]
 
 [node name="Manos" parent="." instance=ExtResource("2_aav1h")]
+visible = false
 position = Vector2(263, 125)
 
 [node name="Capa mesa" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="Mesa provisoria" parent="Capa mesa" instance=ExtResource("3_xnugo")]
-position = Vector2(192, 91)
-metadata/_edit_group_ = true
-
-[node name="Area2D" type="Area2D" parent="Capa mesa/Mesa provisoria"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Capa mesa/Mesa provisoria/Area2D"]
-position = Vector2(-1.6452, 0.835754)
-shape = SubResource("RectangleShape2D_n5bjc")
-
-[node name="Alicate" type="Sprite2D" parent="Capa mesa"]
-position = Vector2(80, 64)
-scale = Vector2(0.746325, 0.516177)
-texture = ExtResource("4_f4yiw")
-metadata/_edit_group_ = true
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="Capa mesa/Alicate"]
-collision_layer = 4
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Capa mesa/Alicate/CharacterBody2D"]
-position = Vector2(3.42859, 4.28568)
-shape = SubResource("RectangleShape2D_w8tu7")
-
-[node name="Destornillador" type="Sprite2D" parent="Capa mesa"]
-position = Vector2(325, 56)
-scale = Vector2(0.527451, 0.527451)
-texture = ExtResource("5_lgcsi")
-
-[node name="LlaveInglesa" type="Sprite2D" parent="Capa mesa"]
-position = Vector2(184, 56)
-scale = Vector2(0.621048, 0.621048)
-texture = ExtResource("6_b6fsm")
+[node name="Mesa" type="Sprite2D" parent="Capa mesa"]
+position = Vector2(195, 170)
+scale = Vector2(0.222917, 0.19)
+texture = ExtResource("2_kc6m6")
 
 [node name="CuchilloCartonero" parent="Capa mesa" instance=ExtResource("6_6k2k4")]
-position = Vector2(259, 62)
+position = Vector2(259, 100)
+
+[node name="CuchilloMantequilla" parent="Capa mesa" instance=ExtResource("9_t4fd2")]
+position = Vector2(180, 100)
+
+[node name="Alicate" parent="Capa mesa" instance=ExtResource("8_wgo1q")]
+position = Vector2(320, 100)
 
 [node name="Capa Fondo" type="CanvasLayer" parent="."]
 layer = -2
 
 [node name="Fondo" type="Sprite2D" parent="Capa Fondo"]
-position = Vector2(195, 110)
+modulate = Color(0, 0, 0, 1)
+position = Vector2(195, 115)
 scale = Vector2(0.167187, 0.165278)
 texture = ExtResource("2_0qjm1")
 

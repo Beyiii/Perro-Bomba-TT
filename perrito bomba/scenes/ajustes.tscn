@@ -1,9 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://egucuyhca65w"]
 
-[ext_resource type="Script" path="res://Control.gd" id="1_03ie4"]
+[ext_resource type="Script" path="res://scenes/Control.gd" id="1_03ie4"]
 [ext_resource type="AudioStream" uid="uid://b1ojtuyo3u4lm" path="res://assets/Musik/Adventures of Flying Jack.mp3" id="2_5x8e5"]
 [ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="2_qgo76"]
 [ext_resource type="Texture2D" uid="uid://djwf7cc4l1sis" path="res://assets/Fondos/city 4/9.png" id="4_ufogr"]
+
 
 [sub_resource type="LabelSettings" id="LabelSettings_euckv"]
 font_size = 25

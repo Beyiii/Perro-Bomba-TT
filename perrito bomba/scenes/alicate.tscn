@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://n6uvhl86ihwh"]
+
+[ext_resource type="Script" path="res://scenes/Alicate.gd" id="1_ac8rn"]
+[ext_resource type="Texture2D" uid="uid://c88k8by65jbjc" path="res://alicate.png" id="2_ry7tu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvhng"]
+height = 80.0
+
+[node name="Alicate" type="RigidBody2D"]
+script = ExtResource("1_ac8rn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_wvhng")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ry7tu")

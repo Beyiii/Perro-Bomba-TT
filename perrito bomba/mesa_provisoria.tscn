@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtt3yboy7mt58"]
+[gd_scene load_steps=3 format=3 uid="uid://c02rlpdxl4pf6"]
 
 [ext_resource type="Texture2D" uid="uid://d1pkoxkt0rh2h" path="res://assets/Objetos/mesaprovisoria.jpg" id="1_h7172"]
 
@@ -16,4 +16,5 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-10.6937, 25.9085)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hn21r")
