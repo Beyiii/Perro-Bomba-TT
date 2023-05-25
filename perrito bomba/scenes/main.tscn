@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmxwqdgppxexk"]
+[gd_scene load_steps=18 format=3 uid="uid://bmxwqdgppxexk"]
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="2_0qjm1"]
 [ext_resource type="PackedScene" uid="uid://blq6wn3fq66cx" path="res://scenes/Manos.tscn" id="2_aav1h"]
 [ext_resource type="Texture2D" uid="uid://c081xvos02dll" path="res://assets/mesa.jpg" id="2_kc6m6"]
+[ext_resource type="PackedScene" uid="uid://dpkcqk5ecpfui" path="res://scenes/instrumentos.tscn" id="3_xkpwm"]
 [ext_resource type="PackedScene" uid="uid://fnwsa6ogtucx" path="res://scenes/cuchillo_cartonero.tscn" id="6_6k2k4"]
 [ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="7_cg6je"]
 [ext_resource type="PackedScene" uid="uid://n6uvhl86ihwh" path="res://scenes/alicate.tscn" id="8_wgo1q"]
@@ -113,7 +114,6 @@ transitions = ["Start", "perrito", SubResource("AnimationNodeStateMachineTransit
 [node name="Main" type="Node2D"]
 
 [node name="Manos" parent="." instance=ExtResource("2_aav1h")]
-visible = false
 position = Vector2(263, 125)
 
 [node name="Capa mesa" type="CanvasLayer" parent="."]
@@ -124,14 +124,16 @@ position = Vector2(195, 170)
 scale = Vector2(0.222917, 0.19)
 texture = ExtResource("2_kc6m6")
 
-[node name="CuchilloCartonero" parent="Capa mesa" instance=ExtResource("6_6k2k4")]
+[node name="Instrumentos" parent="Capa mesa" instance=ExtResource("3_xkpwm")]
+
+[node name="Alicate" parent="Capa mesa/Instrumentos" instance=ExtResource("8_wgo1q")]
+position = Vector2(320, 100)
+
+[node name="CuchilloCartonero" parent="Capa mesa/Instrumentos" instance=ExtResource("6_6k2k4")]
 position = Vector2(259, 100)
 
-[node name="CuchilloMantequilla" parent="Capa mesa" instance=ExtResource("9_t4fd2")]
+[node name="CuchilloMantequilla" parent="Capa mesa/Instrumentos" instance=ExtResource("9_t4fd2")]
 position = Vector2(180, 100)
-
-[node name="Alicate" parent="Capa mesa" instance=ExtResource("8_wgo1q")]
-position = Vector2(320, 100)
 
 [node name="Capa Fondo" type="CanvasLayer" parent="."]
 layer = -2

@@ -10,16 +10,16 @@ size = Vector2(7.59531, 77.8265)
 collision_layer = 4
 collision_mask = 4
 gravity_scale = 0.0
-freeze_mode = 1
 script = ExtResource("1_i4v3u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape-CC" type="CollisionShape2D" parent="."]
 position = Vector2(-0.409104, -2.67536)
 rotation = 0.47822
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dqpme")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 0.71733
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape-CC"]
+position = Vector2(1.59441, 2.18695)
+rotation = 0.23911
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_pmus8")
