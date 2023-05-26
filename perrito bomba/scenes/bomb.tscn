@@ -1,11 +1,28 @@
-[gd_scene load_steps=11 format=3 uid="uid://d2r8v2je7npa5"]
+[gd_scene load_steps=13 format=3 uid="uid://d2r8v2je7npa5"]
 
 [ext_resource type="Script" path="res://scenes/bomb.gd" id="1_1n208"]
 [ext_resource type="Texture2D" uid="uid://bf48ejdaema0d" path="res://assets/bomb.png" id="1_a0nj6"]
 [ext_resource type="Texture2D" uid="uid://2oj5jfelm8j0" path="res://assets/cable-AZ.png" id="1_ip7hs"]
 [ext_resource type="Texture2D" uid="uid://coomqtu7vrhwr" path="res://assets/cableA.png" id="2_yq1rd"]
+[ext_resource type="Script" path="res://scenes/AreaCable1.gd" id="3_xmvqg"]
 [ext_resource type="Texture2D" uid="uid://c1txe1st313m6" path="res://assets/cable-AZ-roto.png" id="4_tdffy"]
 [ext_resource type="Texture2D" uid="uid://bh4un6hdqgbit" path="res://assets/cable-A-roto.png" id="5_57f5n"]
+[ext_resource type="Script" path="res://scenes/AreaCable2.gd" id="5_frdrn"]
+
+[sub_resource type="Animation" id="Animation_ayagg"]
+resource_name = "Cable_Amarilo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cable2:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_yq1rd"), ExtResource("5_57f5n")]
+}
 
 [sub_resource type="Animation" id="Animation_55td7"]
 resource_name = "Cable_Azul"
@@ -49,21 +66,6 @@ tracks/1/keys = {
 "values": [ExtResource("2_yq1rd")]
 }
 
-[sub_resource type="Animation" id="Animation_ayagg"]
-resource_name = "Cable_Amarilo"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("cable2:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("2_yq1rd"), ExtResource("5_57f5n")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4gxhu"]
 _data = {
 "Cable_Amarilo": SubResource("Animation_ayagg"),
@@ -75,13 +77,17 @@ _data = {
 script = ExtResource("1_1n208")
 
 [node name="cable1" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_ip7hs")
 
-[node name="Area2D" type="Area2D" parent="cable1"]
+[node name="AreaCable1" type="Area2D" parent="cable1"]
+light_mask = 4
+visibility_layer = 4
+collision_layer = 5
+collision_mask = 5
+script = ExtResource("3_xmvqg")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cable1/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cable1/AreaCable1"]
 polygon = PackedVector2Array(-126.667, -90, -103.333, -120, -76.6667, -146.667, -40, -166.667, 0, -173.333, 43.3333, -163.333, 73.3333, -150, 106.667, -123.333, 140, -86.6667, 133.333, -83.3333, 103.333, -116.667, 80, -133.333, 43.3333, -153.333, 0, -163.333, -36.6667, -160, -73.3333, -140, -96.6667, -116.667, -116.667, -86.6667)
 disabled = true
 one_way_collision_margin = 0.0
@@ -90,9 +96,10 @@ one_way_collision_margin = 0.0
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_yq1rd")
 
-[node name="Area2D" type="Area2D" parent="cable2"]
+[node name="AreaCable2" type="Area2D" parent="cable2"]
+script = ExtResource("5_frdrn")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cable2/Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cable2/AreaCable2"]
 polygon = PackedVector2Array(-170, -66.6667, -140, -90, -103.333, -106.667, -60, -116.667, -6.66667, -126.667, 60, -126.667, 136.667, -110, 183.333, -90, 216.667, -66.6667, 226.667, -70, 193.333, -96.6667, 136.667, -123.333, 60, -136.667, -6.66667, -136.667, -63.3333, -130, -110, -113.333, -146.667, -96.6667, -176.667, -76.6667)
 
 [node name="bomba" type="Sprite2D" parent="."]
