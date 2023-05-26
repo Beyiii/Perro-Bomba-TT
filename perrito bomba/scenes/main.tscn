@@ -114,10 +114,6 @@ transitions = ["Start", "perrito", SubResource("AnimationNodeStateMachineTransit
 
 [node name="Main" type="Node2D"]
 
-[node name="Manos" parent="." instance=ExtResource("2_aav1h")]
-visible = false
-position = Vector2(263, 125)
-
 [node name="Capa mesa" type="CanvasLayer" parent="."]
 layer = -1
 
@@ -125,9 +121,6 @@ layer = -1
 position = Vector2(195, 149.2)
 scale = Vector2(0.222917, 0.1575)
 texture = ExtResource("2_kc6m6")
-
-[node name="Bomb" parent="Capa mesa" instance=ExtResource("7_pjtur")]
-position = Vector2(200, 181)
 
 [node name="Instrumentos" parent="Capa mesa" instance=ExtResource("3_xkpwm")]
 
@@ -140,6 +133,9 @@ position = Vector2(259, 100)
 [node name="CuchilloMantequilla" parent="Capa mesa/Instrumentos" instance=ExtResource("9_t4fd2")]
 position = Vector2(180, 100)
 
+[node name="Bomb" parent="Capa mesa/Instrumentos" instance=ExtResource("7_pjtur")]
+position = Vector2(200, 181)
+
 [node name="Capa Fondo" type="CanvasLayer" parent="."]
 layer = -2
 
@@ -148,22 +144,6 @@ modulate = Color(0, 0, 0, 1)
 position = Vector2(195, 118)
 scale = Vector2(0.167187, 0.165278)
 texture = ExtResource("2_0qjm1")
-
-[node name="Perrito" type="Sprite2D" parent="."]
-position = Vector2(37, 165)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("7_cg6je")
-hframes = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Perrito"]
-libraries = {
-"": SubResource("AnimationLibrary_pwnro")
-}
-
-[node name="AnimationTree" type="AnimationTree" parent="Perrito"]
-tree_root = SubResource("AnimationNodeStateMachine_ckl8m")
-anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_boa6v")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 bus = &"Musica"
@@ -186,5 +166,24 @@ theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("9_78x2q")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Manos" parent="." instance=ExtResource("2_aav1h")]
+position = Vector2(263, 125)
+
+[node name="Perrito" type="Sprite2D" parent="."]
+position = Vector2(37, 165)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("7_cg6je")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Perrito"]
+libraries = {
+"": SubResource("AnimationLibrary_pwnro")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Perrito"]
+tree_root = SubResource("AnimationNodeStateMachine_ckl8m")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_boa6v")
 
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

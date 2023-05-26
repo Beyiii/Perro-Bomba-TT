@@ -12,8 +12,10 @@ extends CharacterBody2D
 @onready var marker_izq = $"Manito izq/MarkerIzq"
 
 @onready var pickable_area_der = $"Manito der/PickableAreaDer"
-@onready var collision_shape_2d = $"Manito izq/PickableAreaIzq/CollisionShape2D"
+@onready var pickable_area_izq = $"Manito izq/PickableAreaIzq"
 
+
+@onready var collision_shape_2d = $"Manito izq/PickableAreaIzq/CollisionShape2D"
 
 
 @onready var playback_der = animation_tree_der.get("parameters/playback")
@@ -40,6 +42,7 @@ func _ready():
 	animation_tree_der.active = true
 	perrito_tree.active = true
 	pickable_area_der.body_entered.connect(_on_pickable_enter)
+	pickable_area_izq.body_entered.connect(_on_pickable_enter)
 	
 	
 func _process(delta):

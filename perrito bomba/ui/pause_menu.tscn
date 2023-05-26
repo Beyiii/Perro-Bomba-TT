@@ -11,6 +11,7 @@ font_size = 25
 
 [node name="PauseMenu" type="MarginContainer"]
 process_mode = 3
+texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
