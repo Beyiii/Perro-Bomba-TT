@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwe35m631thdq"
-path="res://.godot/imported/Alicate.png-abbece338179861004e352ce256186a6.ctex"
+path="res://.godot/imported/alicate.png-616750b8ef57d7c3d8777e4eeb38904c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Alicate.png"
-dest_files=["res://.godot/imported/Alicate.png-abbece338179861004e352ce256186a6.ctex"]
+source_file="res://alicate.png"
+dest_files=["res://.godot/imported/alicate.png-616750b8ef57d7c3d8777e4eeb38904c.ctex"]
 
 [params]
 
