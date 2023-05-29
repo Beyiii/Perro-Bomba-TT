@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmxwqdgppxexk"]
+[gd_scene load_steps=20 format=3 uid="uid://bmxwqdgppxexk"]
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="2_0qjm1"]
 [ext_resource type="PackedScene" uid="uid://blq6wn3fq66cx" path="res://scenes/Manos.tscn" id="2_aav1h"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://fnwsa6ogtucx" path="res://scenes/cuchillo_cartonero.tscn" id="6_6k2k4"]
 [ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="7_cg6je"]
 [ext_resource type="PackedScene" uid="uid://d2r8v2je7npa5" path="res://scenes/bomb.tscn" id="7_pjtur"]
+[ext_resource type="AudioStream" uid="uid://bspv667hkv7ky" path="res://assets/Musik/Three Chain Links - The Happiest Days Of Our Lives - 02 Drive Fast.mp3" id="8_lax1m"]
 [ext_resource type="PackedScene" uid="uid://n6uvhl86ihwh" path="res://scenes/alicate.tscn" id="8_wgo1q"]
 [ext_resource type="FontFile" uid="uid://sxad1nenyp83" path="res://assets/Font/AlphaProta.otf" id="9_78x2q"]
 [ext_resource type="Script" path="res://scenes/Timer.gd" id="9_qyfhd"]
@@ -146,6 +147,8 @@ scale = Vector2(0.167187, 0.165278)
 texture = ExtResource("2_0qjm1")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_lax1m")
+autoplay = true
 bus = &"Musica"
 
 [node name="Timer" type="Timer" parent="."]
