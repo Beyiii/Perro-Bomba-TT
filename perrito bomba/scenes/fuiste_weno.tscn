@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://e2xjqupkigfu"]
 
+[ext_resource type="Script" path="res://scenes/codigos/fuiste_weno.gd" id="1_4qdx6"]
 [ext_resource type="Texture2D" uid="uid://dy575jx1k4c7q" path="res://assets/Fondos/city 8/7.png" id="1_l7efa"]
-[ext_resource type="Script" path="res://scenes/fuiste_weno.gd" id="1_poitp"]
 [ext_resource type="Texture2D" uid="uid://cja63cljpwtp7" path="res://assets/explosiones/explosion-4.png" id="2_xllmx"]
 [ext_resource type="Texture2D" uid="uid://btkvt60kxfbe5" path="res://assets/explosiones/explosion-5.png" id="3_3mo60"]
 [ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="4_ls4o2"]
 [ext_resource type="AudioStream" uid="uid://e12hyv251esw" path="res://assets/Musik/[MP3] Tearjerker Music Pack/2. Survivor's Lament.mp3" id="6_85uwx"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_poitp")
+script = ExtResource("1_4qdx6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -1

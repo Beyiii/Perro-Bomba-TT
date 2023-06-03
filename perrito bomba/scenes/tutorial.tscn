@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://c5r6pcqh4251c"]
 
 [ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="1_lb8ct"]
-[ext_resource type="Script" path="res://scenes/tutorial.gd" id="2_d5lgg"]
+[ext_resource type="Script" path="res://scenes/codigos/tutorial.gd" id="2_3k2d3"]
 [ext_resource type="Texture2D" uid="uid://v225k21etvkc" path="res://assets/Tutorial/Tutorial provisorio.jpg" id="3_gc8qf"]
 [ext_resource type="AudioStream" uid="uid://b1ojtuyo3u4lm" path="res://assets/Musik/Adventures of Flying Jack.mp3" id="3_ku010"]
 [ext_resource type="Texture2D" uid="uid://djwf7cc4l1sis" path="res://assets/Fondos/city 4/9.png" id="5_eic63"]
@@ -16,7 +16,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_lb8ct")
-script = ExtResource("2_d5lgg")
+script = ExtResource("2_3k2d3")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2

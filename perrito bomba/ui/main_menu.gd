@@ -4,6 +4,8 @@ extends MarginContainer
 @onready var exit = %Exit
 @onready var tutorial = %Tutorial
 @onready var ajustes = %Ajustes
+@onready var creditos = %Creditos
+
 
 @export var main_scene: PackedScene
 
@@ -12,6 +14,7 @@ func _ready():
 	tutorial.pressed.connect(_on_tutorial_pressed)
 	exit.pressed.connect(_on_exit_pressed)
 	ajustes.pressed.connect(_on_ajustes_pressed)
+	creditos.pressed.connect(_on_creditos_pressed)
 	
 func _on_start_pressed():
 #	get_tree().change_scene_to_file("res://scenes/main.tscn")
@@ -27,3 +30,6 @@ func _on_tutorial_pressed():
 # oli
 func _on_ajustes_pressed():
 	get_tree().change_scene_to_file("res://scenes/ajustes.tscn")
+
+func _on_creditos_pressed():
+	get_tree().change_scene_to_file("res://scenes/creditos.tscn")

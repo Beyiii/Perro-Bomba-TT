@@ -71,6 +71,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Tutorial"
 
+[node name="Creditos" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Creditos"
+
 [node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2

@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bspv667hkv7ky" path="res://assets/Musik/Three Chain Links - The Happiest Days Of Our Lives - 02 Drive Fast.mp3" id="8_lax1m"]
 [ext_resource type="PackedScene" uid="uid://n6uvhl86ihwh" path="res://scenes/alicate.tscn" id="8_wgo1q"]
 [ext_resource type="FontFile" uid="uid://sxad1nenyp83" path="res://assets/Font/AlphaProta.otf" id="9_78x2q"]
-[ext_resource type="Script" path="res://scenes/Timer.gd" id="9_qyfhd"]
+[ext_resource type="Script" path="res://scenes/codigos/Timer.gd" id="9_777nv"]
 [ext_resource type="PackedScene" uid="uid://deui4pyfk7ayl" path="res://scenes/cuchillo_mantequilla.tscn" id="9_t4fd2"]
 
 [sub_resource type="Animation" id="Animation_8rpgq"]
@@ -152,7 +152,7 @@ autoplay = true
 bus = &"Musica"
 
 [node name="Timer" type="Timer" parent="."]
-script = ExtResource("9_qyfhd")
+script = ExtResource("9_777nv")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = 169.0

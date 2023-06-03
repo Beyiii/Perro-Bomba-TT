@@ -1,13 +1,14 @@
 [gd_scene load_steps=13 format=3 uid="uid://d2r8v2je7npa5"]
 
-[ext_resource type="Script" path="res://scenes/bomb.gd" id="1_1n208"]
+[ext_resource type="Script" path="res://scenes/codigos/bomb.gd" id="1_1n208"]
 [ext_resource type="Texture2D" uid="uid://bf48ejdaema0d" path="res://assets/bomb.png" id="1_a0nj6"]
 [ext_resource type="Texture2D" uid="uid://2oj5jfelm8j0" path="res://assets/cable-AZ.png" id="1_ip7hs"]
 [ext_resource type="Texture2D" uid="uid://coomqtu7vrhwr" path="res://assets/cableA.png" id="2_yq1rd"]
-[ext_resource type="Script" path="res://scenes/AreaCable1.gd" id="3_xmvqg"]
+[ext_resource type="Script" path="res://scenes/codigos/AreaCable1.gd" id="3_xmvqg"]
 [ext_resource type="Texture2D" uid="uid://c1txe1st313m6" path="res://assets/cable-AZ-roto.png" id="4_tdffy"]
 [ext_resource type="Texture2D" uid="uid://bh4un6hdqgbit" path="res://assets/cable-A-roto.png" id="5_57f5n"]
-[ext_resource type="Script" path="res://scenes/AreaCable2.gd" id="5_frdrn"]
+[ext_resource type="Script" path="res://scenes/codigos/AreaCable2.gd" id="5_frdrn"]
+
 
 [sub_resource type="Animation" id="Animation_ayagg"]
 resource_name = "Cable_Amarilo"

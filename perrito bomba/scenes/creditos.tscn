@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://bet4nnkp230dp"]
+
+[ext_resource type="Script" path="res://Creditos.gd" id="1_juekw"]
+[ext_resource type="Texture2D" uid="uid://7rcs7knhidgs" path="res://assets/Fondos/city 5/7.png" id="2_5xpn8"]
+[ext_resource type="FontFile" uid="uid://bf80vg5cqxqb" path="res://Fonts/Chonkly.otf" id="3_lpfgt"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_juekw")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 166.0
+offset_top = 77.0
+offset_right = 206.0
+offset_bottom = 127.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Titulos creditos" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_lpfgt")
+theme_override_font_sizes/font_size = 16
+
+[node name="Contendio creditos" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_lpfgt")
+theme_override_font_sizes/font_size = 8
+
+[node name="7" type="Sprite2D" parent="."]
+position = Vector2(190, 108)
+scale = Vector2(0.171498, 0.171498)
+texture = ExtResource("2_5xpn8")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

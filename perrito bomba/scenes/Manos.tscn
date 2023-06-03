@@ -1,6 +1,6 @@
 [gd_scene load_steps=81 format=3 uid="uid://blq6wn3fq66cx"]
 
-[ext_resource type="Script" path="res://scenes/Manos.gd" id="1_krtxt"]
+[ext_resource type="Script" path="res://scenes/codigos/Manos.gd" id="1_l15x5"]
 [ext_resource type="Texture2D" uid="uid://bm55m5rjnbcye" path="res://assets/Manito Quieta.png" id="2_310eh"]
 [ext_resource type="Texture2D" uid="uid://b2tckfcwv4ltr" path="res://assets/Cerrar-Todo.png" id="3_7t5kj"]
 [ext_resource type="Texture2D" uid="uid://k4ujn4u7q3uw" path="res://assets/Dedos Derechos.png" id="4_vyprs"]
@@ -1168,7 +1168,7 @@ graph_offset = Vector2(0, -13.8201)
 
 [node name="Manos" type="CharacterBody2D"]
 collision_mask = 0
-script = ExtResource("1_krtxt")
+script = ExtResource("1_l15x5")
 metadata/_edit_lock_ = true
 metadata/_edit_vertical_guides_ = []
 metadata/_edit_horizontal_guides_ = [-21.0]

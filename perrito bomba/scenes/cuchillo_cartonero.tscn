@@ -1,7 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://fnwsa6ogtucx"]
 
-[ext_resource type="Script" path="res://scenes/cuchillo_cartonero.gd" id="1_i4v3u"]
+[ext_resource type="Script" path="res://scenes/codigos/cuchillo_cartonero.gd" id="1_i4v3u"]
 [ext_resource type="Texture2D" uid="uid://ctjnlx3w4p8pq" path="res://cuter.png" id="2_pmus8"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_trj3j"]
 radius = 3.0

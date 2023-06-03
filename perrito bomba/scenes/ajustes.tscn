@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://egucuyhca65w"]
 
-[ext_resource type="Script" path="res://scenes/Control.gd" id="1_03ie4"]
+[ext_resource type="Script" path="res://scenes/codigos/Control.gd" id="1_m8kel"]
 [ext_resource type="AudioStream" uid="uid://b1ojtuyo3u4lm" path="res://assets/Musik/Adventures of Flying Jack.mp3" id="2_5x8e5"]
 [ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="2_qgo76"]
 [ext_resource type="Texture2D" uid="uid://djwf7cc4l1sis" path="res://assets/Fondos/city 4/9.png" id="4_ufogr"]
@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_03ie4")
+script = ExtResource("1_m8kel")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
