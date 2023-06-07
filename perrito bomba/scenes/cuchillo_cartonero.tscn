@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scenes/codigos/cuchillo_cartonero.gd" id="1_i4v3u"]
 [ext_resource type="Texture2D" uid="uid://ctjnlx3w4p8pq" path="res://cuter.png" id="2_pmus8"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_trj3j"]
 radius = 3.0
 
@@ -11,19 +10,19 @@ radius = 3.0
 size = Vector2(7.59531, 77.8265)
 
 [node name="CuchilloCartonero" type="RigidBody2D"]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 20
+collision_mask = 20
 gravity_scale = 0.0
 script = ExtResource("1_i4v3u")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Corte"]]
 position = Vector2(16, -35)
-collision_layer = 5
-collision_mask = 5
+collision_layer = 16
+collision_mask = 16
 
 [node name="Corte" type="CollisionShape2D" parent="Area2D"]
-light_mask = 5
-visibility_layer = 5
+light_mask = 16
+visibility_layer = 16
 position = Vector2(-1.90735e-06, 3.8147e-06)
 shape = SubResource("CircleShape2D_trj3j")
 

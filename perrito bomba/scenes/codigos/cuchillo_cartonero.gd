@@ -6,21 +6,3 @@ extends Pickable
 
 
 
-
-"""
-func _on_area_entered(area: Area2D):
-	if area.has_method("cortar"):
-		area.cortar()
-		
-func cortar():
-	print("corte")
-"""
-
-
-
-func _on_area_2d_area_entered(area):
-	if area.has_method("cortar"):
-		area.cortar()
-		
-func cortar():
-	print("corte")

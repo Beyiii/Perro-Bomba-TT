@@ -7,4 +7,46 @@ extends Node2D
 @onready var area_cable_1 = $cable1/AreaCable1
 @onready var area_cable_2 = $cable2/AreaCable2
 
+var nuevo_color = Color(100, 100, 100)
+var default_color = Color(1, 1, 1)
+
+var on_cable1 = false
+var on_cable2 = false
+
+func _process(delta):
+	if Input.is_action_just_pressed("Cortar"):
+		if on_cable1:
+			animation_player.play("Cable_Azul")
+		if on_cable2:
+			animation_player.play("Cable_Amarilo")
+
+func _on_area_entered(area: Area2D):
+	if area.is_in_group("Corte"):
+		on_cable1 = true
+		cambiar_color(cable_1, nuevo_color)
+		
+func _on_area_cable_1_area_exited(area: Area2D):
+	if area.is_in_group("Corte"):
+		on_cable1 = false
+		cambiar_color(cable_1, default_color)
+
+func _on_area_cable_2_area_entered(area):
+	if area.is_in_group("Corte"):
+		cambiar_color(cable_2, nuevo_color)
+		on_cable2 = true
+		
+func _on_area_cable_2_area_exited(area: Area2D):
+	if area.is_in_group("Corte"):
+		cambiar_color(cable_2, default_color)
+		on_cable2 = false
+	
+func cambiar_color(sprite: Sprite2D, color: Color):
+	sprite.set_modulate(color)
+	
+
+
+
+
+
+
 

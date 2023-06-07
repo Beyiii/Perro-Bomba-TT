@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scenes/codigos/Alicate.gd" id="1_ac8rn"]
 [ext_resource type="Texture2D" uid="uid://bwe35m631thdq" path="res://alicate.png" id="2_xbs6a"]
 
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvhng"]
 height = 80.0
 
