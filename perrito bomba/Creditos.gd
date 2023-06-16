@@ -8,9 +8,11 @@ var indice = 0
 
 var titulos_creditos = ['Creditos',
 	'Música',
-	'otrotexto'
+	'Fondos',
+	'Assets',
+	'Fonts'
 ]
-var contenido_creditos = ['','Linkin Park \nRihanna \nPerro Chocolo', '' ] 
+var contenido_creditos = ['','Linkin Park \nRihanna \nPerro Chocolo', '' ,'',''] 
 var titulos = 'Creditos'
 var contenido = ''
 
@@ -18,7 +20,7 @@ var contenido = ''
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	timer.set_wait_time(2)
+	timer.set_wait_time(5)
 	timer.start()
 	
 

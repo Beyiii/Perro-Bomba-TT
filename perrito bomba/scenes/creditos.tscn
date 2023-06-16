@@ -1,40 +1,46 @@
 [gd_scene load_steps=4 format=3 uid="uid://bet4nnkp230dp"]
 
 [ext_resource type="Script" path="res://Creditos.gd" id="1_juekw"]
-[ext_resource type="Texture2D" uid="uid://7rcs7knhidgs" path="res://assets/Fondos/city 5/7.png" id="2_5xpn8"]
+[ext_resource type="Texture2D" uid="uid://dahvsb8ahw884" path="res://assets/Fondos/city 1/10.png" id="2_ycsmq"]
 [ext_resource type="FontFile" uid="uid://bf80vg5cqxqb" path="res://Fonts/Chonkly.otf" id="3_lpfgt"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_juekw")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-offset_left = 166.0
-offset_top = 77.0
-offset_right = 206.0
-offset_bottom = 127.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="Titulos creditos" type="Label" parent="PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_lpfgt")
-theme_override_font_sizes/font_size = 16
-
-[node name="Contendio creditos" type="Label" parent="PanelContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("3_lpfgt")
-theme_override_font_sizes/font_size = 8
-
 [node name="7" type="Sprite2D" parent="."]
 position = Vector2(190, 108)
 scale = Vector2(0.171498, 0.171498)
-texture = ExtResource("2_5xpn8")
+texture = ExtResource("2_ycsmq")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Titulos creditos" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 155.0
+offset_top = 37.0
+offset_right = 224.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_lpfgt")
+theme_override_font_sizes/font_size = 16
+text = "Creditos"
+
+[node name="Contendio creditos" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 167.0
+offset_top = 64.0
+offset_right = 189.0
+offset_bottom = 75.0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_lpfgt")
+theme_override_font_sizes/font_size = 8
+text = "OLaw"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://dw1vaay5anxil"]
+
+[ext_resource type="Script" path="res://Node2D.gd" id="1_i3yni"]
+[ext_resource type="Texture2D" uid="uid://7rcs7knhidgs" path="res://assets/Fondos/city 5/7.png" id="2_p5sbb"]
+[ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="3_s4n0e"]
+[ext_resource type="AudioStream" uid="uid://bugsrexwksjt7" path="res://assets/Efectos/aplausos.mp3" id="4_c5p0h"]
+[ext_resource type="Texture2D" uid="uid://cs1wxedrk84jx" path="res://assets/Perros sonriendo/real png2.png" id="5_lj0u6"]
+[ext_resource type="Texture2D" uid="uid://b3uxj3ms502v1" path="res://assets/Perros sonriendo/real png3.png" id="6_jjvh7"]
+[ext_resource type="Texture2D" uid="uid://r8c51otxnxah" path="res://assets/Perros sonriendo/real png4.png" id="7_h5sbq"]
+[ext_resource type="Texture2D" uid="uid://qwpymxpmq0ui" path="res://assets/Perros sonriendo/real png5.png" id="8_j0gvc"]
+[ext_resource type="Texture2D" uid="uid://b2qkbvy6nxr7i" path="res://assets/Perros sonriendo/real png7.png" id="9_8ojyt"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_i3yni")
+
+[node name="7" type="Sprite2D" parent="."]
+position = Vector2(190, 106)
+scale = Vector2(0.191388, 0.191388)
+texture = ExtResource("2_p5sbb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 110.0
+offset_top = 7.0
+offset_right = 284.0
+offset_bottom = 33.0
+size_flags_horizontal = 4
+theme = ExtResource("3_s4n0e")
+text = "Has salvado ciudad 
+         Molotov!!"
+
+[node name="Next lvl" type="Button" parent="."]
+offset_left = 123.0
+offset_top = 81.0
+offset_right = 258.0
+offset_bottom = 105.0
+theme = ExtResource("3_s4n0e")
+theme_override_colors/font_color = Color(0, 0.87451, 0, 1)
+text = "Siguiente nivel"
+
+[node name="Volver al menu" type="Button" parent="."]
+offset_left = 123.0
+offset_top = 108.0
+offset_right = 259.0
+offset_bottom = 139.0
+theme = ExtResource("3_s4n0e")
+text = "Volver al Menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1.13444, 1.13444)
+stream = ExtResource("4_c5p0h")
+autoplay = true
+bus = &"Musica"
+
+[node name="RealPng2" type="Sprite2D" parent="."]
+position = Vector2(206, 174)
+scale = Vector2(0.378413, 0.335257)
+texture = ExtResource("5_lj0u6")
+
+[node name="RealPng3" type="Sprite2D" parent="."]
+position = Vector2(31, 180)
+scale = Vector2(0.38056, 0.38056)
+texture = ExtResource("6_jjvh7")
+
+[node name="RealPng4" type="Sprite2D" parent="."]
+position = Vector2(130, 172)
+scale = Vector2(0.489388, 0.489388)
+texture = ExtResource("7_h5sbq")
+
+[node name="RealPng5" type="Sprite2D" parent="."]
+position = Vector2(296, 178)
+scale = Vector2(0.456767, 0.456767)
+texture = ExtResource("8_j0gvc")
+
+[node name="RealPng7" type="Sprite2D" parent="."]
+position = Vector2(361, 182)
+scale = Vector2(0.290487, 0.290487)
+texture = ExtResource("9_8ojyt")

@@ -25,6 +25,7 @@ func _process(delta):
 		if on_cable1:
 			animation_player.play("Cable_Azul")
 			timer.stop()
+			get_tree().change_scene_to_file("res://scenes/nect_lvl.tscn")
 			
 		if on_cable2:
 			animation_player.play("Cable_Amarilo")
