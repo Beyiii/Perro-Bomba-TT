@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://c5r6pcqh4251c"]
+[gd_scene load_steps=10 format=3 uid="uid://c5r6pcqh4251c"]
 
 [ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="1_lb8ct"]
 [ext_resource type="Script" path="res://scenes/codigos/tutorial.gd" id="2_3k2d3"]
-[ext_resource type="Texture2D" uid="uid://v225k21etvkc" path="res://assets/Tutorial/Tutorial provisorio.jpg" id="3_gc8qf"]
+[ext_resource type="Texture2D" uid="uid://d3mjxhq7bqiac" path="res://assets/Tutorial/Tut 1.jpg" id="3_61aee"]
 [ext_resource type="AudioStream" uid="uid://b1ojtuyo3u4lm" path="res://assets/Musik/Adventures of Flying Jack.mp3" id="3_ku010"]
+[ext_resource type="Texture2D" uid="uid://df3l8onaym30f" path="res://assets/Tutorial/Tut 2.jpg" id="4_hhse5"]
 [ext_resource type="Texture2D" uid="uid://djwf7cc4l1sis" path="res://assets/Fondos/city 4/9.png" id="5_eic63"]
+[ext_resource type="Texture2D" uid="uid://sj8sgfke3lw" path="res://assets/Tutorial/Tut3 (2).png" id="5_l385e"]
+[ext_resource type="Texture2D" uid="uid://cy0m0qh2nx1b0" path="res://assets/Tutorial/Tut4.png" id="6_ufwcw"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0ehj7"]
 font_size = 10
@@ -51,13 +54,13 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_gc8qf")
+texture = ExtResource("3_61aee")
 expand_mode = 2
 
 [node name="instrucciones" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Mueve las patas del perro
-con el mouse"
+text = "  Mueve las patas del
+  perro con el mouse."
 label_settings = SubResource("LabelSettings_0ehj7")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -68,13 +71,14 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_gc8qf")
+texture = ExtResource("4_hhse5")
 expand_mode = 2
 
 [node name="instrucciones" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Mueve las patas del perro
-con el mouse"
+text = "    Con click izquierdo eliges 
+   la mano y con el click derecho
+   usas ambas manos."
 label_settings = SubResource("LabelSettings_0ehj7")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -88,13 +92,13 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_gc8qf")
+texture = ExtResource("5_l385e")
 expand_mode = 2
 
 [node name="instrucciones" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "Mueve las patas del perro
-con el mouse"
+text = "  Usa Q,W,E,R para controlar
+  los dedos."
 label_settings = SubResource("LabelSettings_0ehj7")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
@@ -105,13 +109,13 @@ custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("3_gc8qf")
+texture = ExtResource("6_ufwcw")
 expand_mode = 2
 
 [node name="instrucciones" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer2"]
 layout_mode = 2
-text = "Mueve las patas del perro
-con el mouse"
+text = "  Corta el cable con espacio
+  cuando este destacado."
 label_settings = SubResource("LabelSettings_0ehj7")
 
 [node name="Volver al menu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]

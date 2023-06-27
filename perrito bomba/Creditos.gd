@@ -2,6 +2,7 @@ extends Node2D
 @onready var timer = $Timer
 @onready var label1 = %"Titulos creditos"
 @onready var label2 = %"Contendio creditos"
+@onready var button = $Button
 
 
 var indice = 0
@@ -10,9 +11,13 @@ var titulos_creditos = ['Creditos',
 	'Música',
 	'Fondos',
 	'Assets',
-	'Fonts'
+	'Fonts',''
 ]
-var contenido_creditos = ['','Linkin Park \nRihanna \nPerro Chocolo', '' ,'',''] 
+var contenido_creditos = ['Un juego de: \nGrupo Fantastico👾',
+"Adventures of Flying Jack \nAlexander Nakarada \n \nSurvivor's Lament\nTungerman",
+ 'Modern Cities \nCraftpix' ,
+'Dibujos \nBeyiii \n \nExplosiones \nLuis Zuno \n \nPerros,Herramientas y Bomba\n Google imagenes',
+'Chonkly \nItMeArcadia \n \nAlpha Prota \nGGBotNet','Gracias por jugar'] 
 var titulos = 'Creditos'
 var contenido = ''
 
@@ -20,6 +25,7 @@ var contenido = ''
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	button.pressed.connect(_volver_menu)
 	timer.set_wait_time(5)
 	timer.start()
 	
@@ -33,6 +39,7 @@ func _process(delta):
 	else:
 		get_tree().change_scene_to_file("res://ui/main_menu.tscn")
 
-
+func _volver_menu():
+	get_tree().change_scene_to_file("res://ui/main_menu.tscn")
 func _on_timer_timeout():
 		indice += 1
