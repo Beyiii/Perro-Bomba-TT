@@ -112,7 +112,7 @@ states/perrito/node = SubResource("AnimationNodeAnimation_jlgtf")
 states/perrito/position = Vector2(389, 100)
 transitions = ["Start", "perrito", SubResource("AnimationNodeStateMachineTransition_vx6qh")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_boa6v"]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_no0y3"]
 
 [node name="Main" type="Node2D"]
 
@@ -188,7 +188,7 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="Perrito"]
 tree_root = SubResource("AnimationNodeStateMachine_ckl8m")
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_boa6v")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_no0y3")
 
 [node name="PopupText" parent="." instance=ExtResource("13_7bivi")]
 offset_left = 50.0

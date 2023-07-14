@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dw1vaay5anxil"]
+[gd_scene load_steps=10 format=3 uid="uid://bjqres0rr3aca"]
 
 [ext_resource type="Script" path="res://Node2D.gd" id="1_i3yni"]
 [ext_resource type="Texture2D" uid="uid://7rcs7knhidgs" path="res://assets/Fondos/city 5/7.png" id="2_p5sbb"]

@@ -13,7 +13,7 @@ var titulos_creditos = ['Creditos',
 	'Assets',
 	'Fonts',''
 ]
-var contenido_creditos = ['Un juego de: \nGrupo Fantastico👾',
+var contenido_creditos = ['Un juego de: \nGrupito Fantastico👾',
 "Adventures of Flying Jack \nAlexander Nakarada \n \nSurvivor's Lament\nTungerman",
  'Modern Cities \nCraftpix' ,
 'Dibujos \nBeyiii \n \nExplosiones \nLuis Zuno \n \nPerros,Herramientas y Bomba\n Google imagenes',
