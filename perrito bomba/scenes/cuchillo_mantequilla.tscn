@@ -16,7 +16,7 @@ collision_mask = 4
 gravity_scale = 0.0
 script = ExtResource("1_fxdi6")
 
-[node name="Area2D" type="Area2D" parent="." groups=["NoCorte"]]
+[node name="Area2D" type="Area2D" parent="." groups=["Corte"]]
 collision_layer = 16
 collision_mask = 16
 

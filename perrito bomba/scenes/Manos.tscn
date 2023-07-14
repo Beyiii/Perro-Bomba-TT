@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://blq6wn3fq66cx"]
+[gd_scene load_steps=79 format=3 uid="uid://blq6wn3fq66cx"]
 
 [ext_resource type="Script" path="res://scenes/codigos/Manos.gd" id="1_l15x5"]
 [ext_resource type="Texture2D" uid="uid://bm55m5rjnbcye" path="res://assets/Manito Quieta.png" id="2_310eh"]
@@ -1070,8 +1070,6 @@ states/idleIzq/position = Vector2(358, 100)
 transitions = ["Start", "idleIzq", SubResource("AnimationNodeStateMachineTransition_1ommp"), "idleIzq", "CerrarIzq", SubResource("AnimationNodeStateMachineTransition_0j16a"), "CerrarIzq", "AbrirIzq", SubResource("AnimationNodeStateMachineTransition_snwq2"), "AbrirIzq", "idleIzq", SubResource("AnimationNodeStateMachineTransition_fs05r"), "idleIzq", "MediosCerrarIzq", SubResource("AnimationNodeStateMachineTransition_6xhv7"), "MediosCerrarIzq", "MediosAbrirIzq", SubResource("AnimationNodeStateMachineTransition_dvrkk"), "MediosAbrirIzq", "idleIzq", SubResource("AnimationNodeStateMachineTransition_x6mxk"), "idleIzq", "DerechosCerrarIzq", SubResource("AnimationNodeStateMachineTransition_u2x1b"), "idleIzq", "IzquierdosCerrarIzq", SubResource("AnimationNodeStateMachineTransition_g1sar"), "DerechosCerrarIzq", "DerechosAbrirIzq", SubResource("AnimationNodeStateMachineTransition_ucauj"), "IzquierdosCerrarIzq", "IzquierdosAbrirIzq", SubResource("AnimationNodeStateMachineTransition_ymkbh"), "DerechosAbrirIzq", "idleIzq", SubResource("AnimationNodeStateMachineTransition_81cc0"), "IzquierdosAbrirIzq", "idleIzq", SubResource("AnimationNodeStateMachineTransition_kcus3")]
 graph_offset = Vector2(0, 216.427)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_wuj4p"]
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j3mfg"]
 animation = &"AbrirDer"
 
@@ -1164,8 +1162,6 @@ states/idleDer/position = Vector2(355, 100)
 transitions = ["Start", "idleDer", SubResource("AnimationNodeStateMachineTransition_hudr6"), "idleDer", "CerrarDer", SubResource("AnimationNodeStateMachineTransition_gciax"), "CerrarDer", "AbrirDer", SubResource("AnimationNodeStateMachineTransition_377he"), "AbrirDer", "idleDer", SubResource("AnimationNodeStateMachineTransition_ynw3o"), "idleDer", "MediosCerrarDer", SubResource("AnimationNodeStateMachineTransition_0x8gq"), "MediosCerrarDer", "MediosAbrirDer", SubResource("AnimationNodeStateMachineTransition_xs1of"), "MediosAbrirDer", "idleDer", SubResource("AnimationNodeStateMachineTransition_puqoe"), "idleDer", "DerechosCerrarDer", SubResource("AnimationNodeStateMachineTransition_08hfn"), "idleDer", "IzquierdosCerrarDer", SubResource("AnimationNodeStateMachineTransition_yesyq"), "DerechosCerrarDer", "DerechosAbrirDer", SubResource("AnimationNodeStateMachineTransition_1h55r"), "IzquierdosCerrarDer", "IzquierdosAbrirDer", SubResource("AnimationNodeStateMachineTransition_jbc8c"), "DerechosAbrirDer", "idleDer", SubResource("AnimationNodeStateMachineTransition_a4gsh"), "IzquierdosAbrirDer", "idleDer", SubResource("AnimationNodeStateMachineTransition_rp18d")]
 graph_offset = Vector2(0, -13.8201)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_cwmfy"]
-
 [node name="Manos" type="CharacterBody2D"]
 collision_mask = 0
 script = ExtResource("1_l15x5")
@@ -1225,12 +1221,10 @@ libraries = {
 [node name="AnimationTreeManoIzq" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_big16")
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_wuj4p")
 
 [node name="AnimationTreeManoDer" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_bxf27")
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_cwmfy")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

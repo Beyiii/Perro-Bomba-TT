@@ -36,9 +36,6 @@ func _on_area_entered(area: Area2D):
 		on_cable1 = true
 		cambiar_color(cable_1, nuevo_color)
 		
-	if area.is_in_group("NoCorte"):
-		emit_signal("show_text")
-		
 func _on_area_cable_1_area_exited(area: Area2D):
 	if area.is_in_group("Corte"):
 		on_cable1 = false
@@ -48,9 +45,7 @@ func _on_area_cable_2_area_entered(area):
 	if area.is_in_group("Corte"):
 		cambiar_color(cable_2, nuevo_color)
 		on_cable2 = true
-		
-	if area.is_in_group("NoCorte"):
-		emit_signal("show_text")
+	
 		
 func _on_area_cable_2_area_exited(area: Area2D):
 	if area.is_in_group("Corte"):
