@@ -27,23 +27,24 @@ extends CharacterBody2D
 
 
 enum MANOS {AMBAS, IZQ, DER}
+enum MOVIMIENTO {MOV0, MOV1, MOV2, MOV3, MOV4}
 var mano_actual = MANOS.AMBAS
+var movimiento = MOVIMIENTO.MOV0
 
-var pickable: Pickable = null
-var grabbed = false
+
 
 var scale_factor = 1.05  # El factor de escala que se usará para aumentar el tamaño.
 var max_scale = 0.15  # El tamaño máximo que el Sprite2D puede alcanzar.
 var min_scale = 0.05 # El tamaño mínimo que el Sprite2D puede alcanzar.
 
+var grabbed = false
+var parent: Node = null
 
 func _ready():
 	animation_tree_izq.active = true
 	animation_tree_der.active = true
 	perrito_tree.active = true
-	pickable_area_der.body_entered.connect(_on_pickable_enter)
-	pickable_area_izq.body_entered.connect(_on_pickable_enter)
-	
+
 	
 func _process(delta):
 	
@@ -99,30 +100,18 @@ func _process(delta):
 		
 	#Cierra toda la mano
 	if Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and Input.is_action_pressed("Dedo_3") and Input.is_action_pressed("Dedo_4"):
+		movimiento = MOVIMIENTO.MOV4
+		
 		if mano_actual == MANOS.IZQ:
 			playback_izq.travel("CerrarIzq")
-			grabbed = true
-			pickable.freeze = grabbed
-			
+
 		if mano_actual == MANOS.DER:
 			playback_der.travel("CerrarDer")
-			grabbed = true
-			pickable.freeze = grabbed
-		
-	if !(Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and Input.is_action_pressed("Dedo_3") and Input.is_action_pressed("Dedo_4")):
-		grabbed = false
-		
-	if pickable and grabbed:
-		#pickable.global_position = lerp(pickable.global_position, marker_der.global_position, 0.1)
-		if mano_actual == MANOS.IZQ:
-			pickable.global_position = lerp(pickable.global_position, marker_izq.global_position, 1)
-			
-		if mano_actual == MANOS.DER:
-			pickable.global_position = lerp(pickable.global_position, marker_der.global_position, 1)
-		
 		
 	#Cierra los dos primeros dedos
 	if Input.is_action_pressed("Dedo_1") and Input.is_action_pressed("Dedo_2") and !(Input.is_action_pressed("Dedo_3") or Input.is_action_pressed("Dedo_4")):
+		movimiento = MOVIMIENTO.MOV1
+
 		if mano_actual == MANOS.IZQ:
 			playback_izq.travel("IzquierdosCerrarIzq")
 			
@@ -131,6 +120,8 @@ func _process(delta):
 			
 	#Cierra los dos dedos del medio
 	if Input.is_action_pressed("Dedo_2") and Input.is_action_pressed("Dedo_3") and !(Input.is_action_pressed("Dedo_1") or Input.is_action_pressed("Dedo_4")):
+		movimiento = MOVIMIENTO.MOV2
+		
 		if mano_actual == MANOS.IZQ:
 			playback_izq.travel("MediosCerrarIzq")
 			
@@ -139,13 +130,18 @@ func _process(delta):
 			
 	#Cierra los dos ultimos dedos 
 	if Input.is_action_pressed("Dedo_3") and Input.is_action_pressed("Dedo_4") and !(Input.is_action_pressed("Dedo_1") or Input.is_action_pressed("Dedo_2")):
+		movimiento = MOVIMIENTO.MOV3
+		
 		if mano_actual == MANOS.IZQ:
 			playback_izq.travel("DerechosCerrarIzq")
 			
 		if mano_actual == MANOS.DER:
 			playback_der.travel("DerechosCerrarDer")
 			
-			
+	#Si no se está haciendo ningún movimiento con la mano grabbed es falso y MOV0
+	if !(Input.is_action_pressed("Dedo_1") or Input.is_action_pressed("Dedo_2") or Input.is_action_pressed("Dedo_3") or Input.is_action_pressed("Dedo_4")):
+		movimiento = MOVIMIENTO.MOV0
+		grabbed = false
 		
 	if mano_actual == MANOS.AMBAS:
 		self.position = self.position.move_toward(mouse_pos, 400 * delta)
@@ -159,21 +155,54 @@ func _process(delta):
 	if mano_actual == MANOS.IZQ:
 		var izq = Vector2(-40,0)
 		manitoIzq.position = manitoIzq.position.move_toward(mouse_pos - self.position - izq, 400 * delta)
+		
+	if grabbed == true:
+		parent.global_position = lerp(parent.global_position, marker_izq.global_position, 1)
 	
 			
-func _on_pickable_enter(body: Node):
-	if body is Pickable:
-		pickable = body
 
-
-#func _on_pickable_exit(body: Node):
-#	if body == pickable and not grabbed:
-#		pickable = null
+func _on_pickable_area_der_area_entered(area):
+	var padre = area.get_parent()
+	
+	if area.is_in_group("Mov1") and movimiento == MOVIMIENTO.MOV1:
+		padre.global_position = lerp(padre.global_position, marker_der.global_position, 1)
+	
+	if area.is_in_group("Mov2") and movimiento == MOVIMIENTO.MOV2:
+		padre.global_position = lerp(padre.global_position, marker_der.global_position, 1)
 		
+	if area.is_in_group("Mov3") and movimiento == MOVIMIENTO.MOV3:
+		padre.global_position = lerp(padre.global_position, marker_der.global_position, 1)
 		
+	if area.is_in_group("Mov4") and movimiento == MOVIMIENTO.MOV4:
+		padre.global_position = lerp(padre.global_position, marker_der.global_position, 1)
 	
 
-	
+func _on_pickable_area_der_area_exited(area):
+	pass # Replace with function body.
+
+
+
+
 
 		
+func _on_pickable_area_izq_area_entered(area):
+	var padre = area.get_parent()
+	if area.is_in_group("Mov1") and movimiento == MOVIMIENTO.MOV1:
+		grabbed = true
+		parent = padre
 		
+	if area.is_in_group("Mov2") and movimiento == MOVIMIENTO.MOV2:
+		padre.global_position = lerp(padre.global_position, marker_izq.global_position, 1)
+		
+	if area.is_in_group("Mov3") and movimiento == MOVIMIENTO.MOV3:
+		padre.global_position = lerp(padre.global_position, marker_izq.global_position, 1)
+		
+	if area.is_in_group("Mov4") and movimiento == MOVIMIENTO.MOV4:
+		padre.global_position = lerp(padre.global_position, marker_izq.global_position, 1)
+		
+		
+
+
+
+func _on_pickable_area_izq_area_exited(area):
+	pass # Replace with function body.

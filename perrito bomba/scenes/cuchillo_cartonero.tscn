@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://fnwsa6ogtucx"]
+[gd_scene load_steps=6 format=3 uid="uid://fnwsa6ogtucx"]
 
 [ext_resource type="Script" path="res://scenes/codigos/cuchillo_cartonero.gd" id="1_i4v3u"]
 [ext_resource type="Texture2D" uid="uid://ctjnlx3w4p8pq" path="res://cuter.png" id="2_pmus8"]
@@ -9,9 +9,12 @@ radius = 3.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqpme"]
 size = Vector2(7.59531, 77.8265)
 
-[node name="CuchilloCartonero" type="RigidBody2D"]
-collision_layer = 20
-collision_mask = 20
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dv8qb"]
+size = Vector2(15.1906, 80.6202)
+
+[node name="CuchilloCartonero" type="RigidBody2D" groups=["movi1"]]
+collision_layer = 16
+collision_mask = 16
 gravity_scale = 0.0
 script = ExtResource("1_i4v3u")
 
@@ -36,3 +39,12 @@ position = Vector2(1.59441, 2.18695)
 rotation = 0.23911
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_pmus8")
+
+[node name="AreaAgarre" type="Area2D" parent="." groups=["Mov1"]]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAgarre"]
+position = Vector2(-1, -2)
+rotation = 0.47822
+shape = SubResource("RectangleShape2D_dv8qb")

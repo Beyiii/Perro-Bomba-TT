@@ -1,4 +1,4 @@
-extends Pickable
+extends RigidBody2D
 
 
 @onready var collision_shape_cc = $"CollisionShape-CC"
