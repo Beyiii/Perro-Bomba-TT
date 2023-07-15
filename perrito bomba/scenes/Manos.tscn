@@ -1245,7 +1245,7 @@ offset_top = -4.0
 offset_right = 1.0
 offset_bottom = -4.0
 
-[connection signal="area_entered" from="Manito der/PickableAreaDer" to="." method="_on_pickable_area_der_area_entered"]
-[connection signal="area_exited" from="Manito der/PickableAreaDer" to="." method="_on_pickable_area_der_area_exited"]
-[connection signal="area_entered" from="Manito izq/PickableAreaIzq" to="." method="_on_pickable_area_izq_area_entered"]
-[connection signal="area_exited" from="Manito izq/PickableAreaIzq" to="." method="_on_pickable_area_izq_area_exited"]
+[connection signal="body_entered" from="Manito der/PickableAreaDer" to="." method="_on_pickable_area_der_body_entered"]
+[connection signal="body_exited" from="Manito der/PickableAreaDer" to="." method="_on_pickable_area_der_body_exited"]
+[connection signal="body_entered" from="Manito izq/PickableAreaIzq" to="." method="_on_pickable_area_izq_body_entered"]
+[connection signal="body_exited" from="Manito izq/PickableAreaIzq" to="." method="_on_pickable_area_izq_body_exited"]

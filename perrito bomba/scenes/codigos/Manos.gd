@@ -40,28 +40,6 @@ var min_scale = 0.05 # El tamaño mínimo que el Sprite2D puede alcanzar.
 var parent: Node = null
 var grabbed = false
 
-func _on_pickable_area_der_area_entered(area):
-	var padre = area.get_parent()
-	
-	if (area.is_in_group("Mov1") and movimiento == MOVIMIENTO.MOV1) or \
-	   (area.is_in_group("Mov2") and movimiento == MOVIMIENTO.MOV2) or \
-	   (area.is_in_group("Mov3") and movimiento == MOVIMIENTO.MOV3) or \
-	   (area.is_in_group("Mov4") and movimiento == MOVIMIENTO.MOV4):
-		grabbed = true
-		parent = padre
-
-
-		
-func _on_pickable_area_izq_area_entered(area):
-	var padre = area.get_parent()
-	
-	if (area.is_in_group("Mov1") and movimiento == MOVIMIENTO.MOV1) or \
-	   (area.is_in_group("Mov2") and movimiento == MOVIMIENTO.MOV2) or \
-	   (area.is_in_group("Mov3") and movimiento == MOVIMIENTO.MOV3) or \
-	   (area.is_in_group("Mov4") and movimiento == MOVIMIENTO.MOV4):
-		grabbed = true
-		parent = padre
-
 func _ready():
 	animation_tree_izq.active = true
 	animation_tree_der.active = true
@@ -167,6 +145,13 @@ func _process(delta):
 		
 	if mano_actual == MANOS.AMBAS:
 		self.position = self.position.move_toward(mouse_pos, 400 * delta)
+		
+		
+	if parent != null and ((parent.is_in_group("MOV1") and movimiento == MOVIMIENTO.MOV1) or \
+	   (parent.is_in_group("MOV2") and movimiento == MOVIMIENTO.MOV2) or \
+	   (parent.is_in_group("MOV3") and movimiento == MOVIMIENTO.MOV3) or \
+	   (parent.is_in_group("MOV4") and movimiento == MOVIMIENTO.MOV4)):
+		grabbed = true
 	
 		
 	if mano_actual == MANOS.DER:
@@ -184,5 +169,17 @@ func _process(delta):
 			parent.global_position = lerp(parent.global_position, marker_izq.global_position, 1)
 
 
+func _on_pickable_area_der_body_entered(body):
+	parent = body
 
 
+func _on_pickable_area_izq_body_entered(body):
+	parent = body
+
+
+func _on_pickable_area_izq_body_exited(body):
+	parent = null
+
+
+func _on_pickable_area_der_body_exited(body):
+	parent = null
