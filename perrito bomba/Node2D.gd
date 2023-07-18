@@ -10,7 +10,7 @@ func _ready():
 
 
 func _on_lvl_pressed():
-	get_tree().change_scene_to_file("res://ui/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/nivel_2.tscn")
 
 
 func _on_menu_pressed():

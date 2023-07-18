@@ -1,0 +1,185 @@
+[gd_scene load_steps=19 format=3 uid="uid://dgln0sk3amn3a"]
+
+[ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="1_mhrpl"]
+[ext_resource type="Texture2D" uid="uid://c081xvos02dll" path="res://assets/mesa.jpg" id="1_oh5w5"]
+[ext_resource type="PackedScene" uid="uid://c58wx6h7ld0wr" path="res://scenes/alicate_2.tscn" id="3_w07fx"]
+[ext_resource type="PackedScene" uid="uid://c0i5i2bhg0a4m" path="res://scenes/tijera_2.tscn" id="4_svc8f"]
+[ext_resource type="PackedScene" uid="uid://xshpee6hetdy" path="res://scenes/tiptop_2.tscn" id="5_fa4yw"]
+[ext_resource type="PackedScene" uid="uid://2xsb1mg6vop0" path="res://scenes/c_mantequilla.tscn" id="6_0gw7c"]
+[ext_resource type="PackedScene" uid="uid://cqysyqvj3j86e" path="res://scenes/bomba_2.tscn" id="7_hs8rm"]
+[ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="8_s1th8"]
+[ext_resource type="FontFile" uid="uid://sxad1nenyp83" path="res://assets/Font/AlphaProta.otf" id="9_ofjko"]
+[ext_resource type="AudioStream" uid="uid://bspv667hkv7ky" path="res://assets/Musik/Three Chain Links - The Happiest Days Of Our Lives - 02 Drive Fast.mp3" id="10_8gn4o"]
+[ext_resource type="PackedScene" uid="uid://kosefwv0edlt" path="res://scenes/manos_2.tscn" id="11_hwjma"]
+
+[sub_resource type="Animation" id="Animation_8rpgq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_s1th8")]
+}
+
+[sub_resource type="Animation" id="Animation_pt17g"]
+resource_name = "perrito"
+length = 0.25
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_s1th8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pwnro"]
+_data = {
+"RESET": SubResource("Animation_8rpgq"),
+"perrito": SubResource("Animation_pt17g")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jlgtf"]
+animation = &"perrito"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vx6qh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2r2wy"]
+states/perrito/node = SubResource("AnimationNodeAnimation_jlgtf")
+states/perrito/position = Vector2(389, 100)
+transitions = ["Start", "perrito", SubResource("AnimationNodeStateMachineTransition_vx6qh")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_khrie"]
+
+[node name="Nivel 2" type="Node2D"]
+
+[node name="Fondo2" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(193, 118)
+scale = Vector2(0.167187, 0.165278)
+texture = ExtResource("1_mhrpl")
+
+[node name="Mesa2" type="Sprite2D" parent="."]
+position = Vector2(195, 149.2)
+scale = Vector2(0.222917, 0.1575)
+texture = ExtResource("1_oh5w5")
+
+[node name="Alicate2" parent="Mesa2" instance=ExtResource("3_w07fx")]
+
+[node name="Tijera2" parent="Mesa2" instance=ExtResource("4_svc8f")]
+
+[node name="Tiptop2" parent="Mesa2" instance=ExtResource("5_fa4yw")]
+
+[node name="CMantequilla" parent="Mesa2" instance=ExtResource("6_0gw7c")]
+
+[node name="Bomba2" parent="Mesa2" instance=ExtResource("7_hs8rm")]
+
+[node name="Perrito2" type="Sprite2D" parent="."]
+position = Vector2(37, 165)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("8_s1th8")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Perrito2"]
+libraries = {
+"": SubResource("AnimationLibrary_pwnro")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Perrito2"]
+tree_root = SubResource("AnimationNodeStateMachine_2r2wy")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_khrie")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 169.0
+offset_top = 165.0
+offset_right = 228.0
+offset_bottom = 192.0
+color = Color(0.141176, 0.145098, 0.14902, 1)
+
+[node name="Contador" type="Label" parent="ColorRect2"]
+layout_mode = 0
+offset_right = 59.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("9_ofjko")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_8gn4o")
+autoplay = true
+bus = &"Musica"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="PopUpText" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.52588e-05
+offset_top = -1.52588e-05
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Manos2" parent="." instance=ExtResource("11_hwjma")]

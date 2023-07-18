@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://xshpee6hetdy"]
+
+[ext_resource type="Texture2D" uid="uid://ctjnlx3w4p8pq" path="res://cuter.png" id="1_e3388"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05x3h"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7u51"]
+size = Vector2(7.59531, 77.8265)
+
+[node name="Tiptop2" type="RigidBody2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["Corte"]]
+position = Vector2(16, -35)
+collision_layer = 16
+collision_mask = 16
+
+[node name="Corte" type="CollisionShape2D" parent="Area2D"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(-1.90735e-06, 3.8147e-06)
+shape = SubResource("CircleShape2D_05x3h")
+
+[node name="CollisionShape-CC" type="CollisionShape2D" parent="."]
+position = Vector2(-0.409104, -2.67536)
+rotation = 0.47822
+shape = SubResource("RectangleShape2D_k7u51")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape-CC"]
+position = Vector2(1.59441, 2.18695)
+rotation = 0.23911
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_e3388")

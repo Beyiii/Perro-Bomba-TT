@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0i5i2bhg0a4m"]
+
+[ext_resource type="Texture2D" uid="uid://crsn5f88mtxwq" path="res://assets/Objetos/Tijeras.png" id="1_v7pqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nfkd"]
+size = Vector2(13, 17.0625)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7tm5i"]
+radius = 11.0
+height = 96.0
+
+[node name="Tijera2" type="RigidBody2D"]
+
+[node name="Area2D" type="Area2D" parent="." groups=["Corte"]]
+collision_layer = 16
+collision_mask = 16
+
+[node name="Corte" type="CollisionShape2D" parent="Area2D"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(2.5, -37)
+shape = SubResource("RectangleShape2D_3nfkd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+shape = SubResource("CapsuleShape2D_7tm5i")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-2, 0)
+rotation = 3.14159
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_v7pqh")
