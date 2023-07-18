@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://c081xvos02dll" path="res://assets/mesa.jpg" id="2_kc6m6"]
 [ext_resource type="PackedScene" uid="uid://dpkcqk5ecpfui" path="res://scenes/instrumentos.tscn" id="3_xkpwm"]
 [ext_resource type="PackedScene" uid="uid://fnwsa6ogtucx" path="res://scenes/cuchillo_cartonero.tscn" id="6_6k2k4"]
+[ext_resource type="PackedScene" uid="uid://b4oe2a88xemk2" path="res://scenes/tijera.tscn" id="6_htrjg"]
 [ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="7_cg6je"]
 [ext_resource type="PackedScene" uid="uid://d2r8v2je7npa5" path="res://scenes/bomb.tscn" id="7_pjtur"]
 [ext_resource type="AudioStream" uid="uid://bspv667hkv7ky" path="res://assets/Musik/Three Chain Links - The Happiest Days Of Our Lives - 02 Drive Fast.mp3" id="8_lax1m"]
 [ext_resource type="PackedScene" uid="uid://n6uvhl86ihwh" path="res://scenes/alicate.tscn" id="8_wgo1q"]
 [ext_resource type="FontFile" uid="uid://sxad1nenyp83" path="res://assets/Font/AlphaProta.otf" id="9_78x2q"]
 [ext_resource type="Script" path="res://scenes/codigos/Timer.gd" id="9_777nv"]
-[ext_resource type="PackedScene" uid="uid://deui4pyfk7ayl" path="res://scenes/cuchillo_mantequilla.tscn" id="9_t4fd2"]
 [ext_resource type="PackedScene" uid="uid://cj75radpqfk6o" path="res://scenes/popup_text.tscn" id="13_7bivi"]
 
 [sub_resource type="Animation" id="Animation_8rpgq"]
@@ -133,11 +133,11 @@ position = Vector2(331, 100)
 [node name="CuchilloCartonero" parent="Capa mesa/Instrumentos" instance=ExtResource("6_6k2k4")]
 position = Vector2(194, 100)
 
-[node name="CuchilloMantequilla" parent="Capa mesa/Instrumentos" instance=ExtResource("9_t4fd2")]
-position = Vector2(57, 100)
-
 [node name="Bomb" parent="Capa mesa/Instrumentos" instance=ExtResource("7_pjtur")]
 position = Vector2(200, 181)
+
+[node name="Tijera" parent="Capa mesa/Instrumentos" instance=ExtResource("6_htrjg")]
+position = Vector2(84, 101)
 
 [node name="Capa Fondo" type="CanvasLayer" parent="."]
 layer = -2

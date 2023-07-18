@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4oe2a88xemk2"]
+
+[ext_resource type="Texture2D" uid="uid://crsn5f88mtxwq" path="res://assets/Objetos/Tijeras.png" id="1_jwibe"]
+[ext_resource type="Script" path="res://scenes/tijera.gd" id="1_kqc5y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvw8h"]
+size = Vector2(13, 17.0625)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ibm5o"]
+radius = 11.0
+height = 96.0
+
+[node name="Tijera" type="RigidBody2D" groups=["MOV3"]]
+collision_layer = 16
+collision_mask = 16
+gravity_scale = 0.0
+script = ExtResource("1_kqc5y")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Corte"]]
+collision_layer = 16
+collision_mask = 16
+
+[node name="Corte" type="CollisionShape2D" parent="Area2D"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(2.5, -37)
+shape = SubResource("RectangleShape2D_cvw8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+shape = SubResource("CapsuleShape2D_ibm5o")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+position = Vector2(-2, 0)
+rotation = 3.14159
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_jwibe")

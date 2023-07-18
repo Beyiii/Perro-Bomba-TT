@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://deui4pyfk7ayl"]
+[gd_scene load_steps=5 format=3 uid="uid://l7858626q3e1"]
 
 [ext_resource type="Script" path="res://scenes/codigos/CuchilloMantequilla.gd" id="1_fxdi6"]
 [ext_resource type="Texture2D" uid="uid://c3rpk3gwr8hhp" path="res://cuchillo_mantequilla.png" id="2_o6a24"]

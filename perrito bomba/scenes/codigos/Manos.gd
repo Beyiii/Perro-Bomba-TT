@@ -40,6 +40,8 @@ var min_scale = 0.05 # El tamaño mínimo que el Sprite2D puede alcanzar.
 var parent: Node = null
 var grabbed = false
 
+var in_area = false
+
 func _ready():
 	animation_tree_izq.active = true
 	animation_tree_der.active = true
@@ -143,6 +145,10 @@ func _process(delta):
 		movimiento = MOVIMIENTO.MOV0
 		grabbed = false
 		
+		if in_area == false:
+			parent = null
+		
+		
 	if mano_actual == MANOS.AMBAS:
 		self.position = self.position.move_toward(mouse_pos, 400 * delta)
 		
@@ -159,27 +165,67 @@ func _process(delta):
 		manitoDer.position = manitoDer.position.move_toward(mouse_pos - self.position - der, 400* delta)
 		
 		if grabbed == true:
-			parent.global_position = lerp(parent.global_position, marker_der.global_position, 1)
-		
+			if parent.get_collision_mask_value(5):
+				pickable_area_der.set_collision_mask_value(6,false)
+				pickable_area_der.set_collision_mask_value(7,false)
+				parent.global_position = lerp(parent.global_position, marker_der.global_position, 1)
+				
+			if parent.get_collision_mask_value(6):
+				pickable_area_der.set_collision_mask_value(5,false)
+				pickable_area_der.set_collision_mask_value(7,false)
+				parent.global_position = lerp(parent.global_position, marker_der.global_position, 1)
+
+			if parent.get_collision_mask_value(7):
+				pickable_area_der.set_collision_mask_value(5,false)
+				pickable_area_der.set_collision_mask_value(6,false)
+				parent.global_position = lerp(parent.global_position, marker_der.global_position, 1)
+				
+		if grabbed == false and parent != null:
+			pickable_area_der.set_collision_mask_value(5,true)
+			pickable_area_der.set_collision_mask_value(6,true)
+			pickable_area_der.set_collision_mask_value(7,true)
+	
+	
 	if mano_actual == MANOS.IZQ:
 		var izq = Vector2(-40,0)
 		manitoIzq.position = manitoIzq.position.move_toward(mouse_pos - self.position - izq, 400 * delta)
 		
 		if grabbed == true:
-			parent.global_position = lerp(parent.global_position, marker_izq.global_position, 1)
+			if parent.get_collision_mask_value(5):
+				pickable_area_izq.set_collision_mask_value(6,false)
+				pickable_area_izq.set_collision_mask_value(7,false)
+				parent.global_position = lerp(parent.global_position, marker_izq.global_position, 1)
+				
+			if parent.get_collision_mask_value(6):
+				pickable_area_izq.set_collision_mask_value(5,false)
+				pickable_area_izq.set_collision_mask_value(7,false)
+				parent.global_position = lerp(parent.global_position, marker_izq.global_position, 1)
 
+			if parent.get_collision_mask_value(7):
+				pickable_area_izq.set_collision_mask_value(5,false)
+				pickable_area_izq.set_collision_mask_value(6,false)
+				parent.global_position = lerp(parent.global_position, marker_izq.global_position, 1)
+				
+		if grabbed == false and parent != null:
+			pickable_area_izq.set_collision_mask_value(5,true)
+			pickable_area_izq.set_collision_mask_value(6,true)
+			pickable_area_izq.set_collision_mask_value(7,true)
+			
+		
+			
 
 func _on_pickable_area_der_body_entered(body):
+	in_area = true
 	parent = body
-
 
 func _on_pickable_area_izq_body_entered(body):
+	in_area = true
 	parent = body
-
+	
 
 func _on_pickable_area_izq_body_exited(body):
-	parent = null
+	in_area = false
 
 
 func _on_pickable_area_der_body_exited(body):
-	parent = null
+	in_area = false
