@@ -76,9 +76,8 @@ expand_mode = 2
 
 [node name="instrucciones" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "    Con click izquierdo eliges 
-   la mano y con el click derecho
-   usas ambas manos."
+text = "  Usa Q,W,E,R para controlar
+  los dedos."
 label_settings = SubResource("LabelSettings_0ehj7")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -97,8 +96,9 @@ expand_mode = 2
 
 [node name="instrucciones" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
 layout_mode = 2
-text = "  Usa Q,W,E,R para controlar
-  los dedos."
+text = " Prueba diferentes
+combinaciones para 
+tomar las herramientas"
 label_settings = SubResource("LabelSettings_0ehj7")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]

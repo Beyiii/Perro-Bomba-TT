@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dgln0sk3amn3a"]
+[gd_scene load_steps=18 format=3 uid="uid://dgln0sk3amn3a"]
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="1_mhrpl"]
 [ext_resource type="Texture2D" uid="uid://c081xvos02dll" path="res://assets/mesa.jpg" id="1_oh5w5"]
@@ -110,8 +110,6 @@ states/perrito/node = SubResource("AnimationNodeAnimation_jlgtf")
 states/perrito/position = Vector2(389, 100)
 transitions = ["Start", "perrito", SubResource("AnimationNodeStateMachineTransition_vx6qh")]
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_khrie"]
-
 [node name="Nivel 2" type="Node2D"]
 
 [node name="Fondo2" type="Sprite2D" parent="."]
@@ -149,7 +147,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="Perrito2"]
 tree_root = SubResource("AnimationNodeStateMachine_2r2wy")
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource("AnimationNodeStateMachinePlayback_khrie")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_left = 169.0

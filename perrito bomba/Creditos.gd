@@ -15,8 +15,8 @@ var titulos_creditos = ['Creditos',
 ]
 var contenido_creditos = ['Un juego de: \nGrupito Fantastico👾',
 "Adventures of Flying Jack \nAlexander Nakarada \n \nSurvivor's Lament\nTungerman",
- 'Modern Cities \nCraftpix' ,
-'Dibujos \nBeyiii \n \nExplosiones \nLuis Zuno \n \nPerros,Herramientas y Bomba\n Google imagenes',
+ 'Modern Cities \nCraftpix' , '\nPerros,Herramientas y Bomba\n Google imagenes\n \n
+Dibujos \nBeyiii \n \nExplosiones \nLuis Zuno \n' ,
 'Chonkly \nItMeArcadia \n \nAlpha Prota \nGGBotNet','Gracias por jugar'] 
 var titulos = 'Creditos'
 var contenido = ''
@@ -32,7 +32,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if indice < len(titulos_creditos):
 		label1.set_text(titulos_creditos[indice])
 		label2.set_text(contenido_creditos[indice])
