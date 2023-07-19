@@ -1,11 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0i5i2bhg0a4m"]
+[gd_scene load_steps=4 format=3 uid="uid://c54jtlhmeoabx"]
 
 [ext_resource type="Texture2D" uid="uid://crsn5f88mtxwq" path="res://assets/Objetos/Tijeras.png" id="1_v7pqh"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3nfkd"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc71x"]
 size = Vector2(13, 17.0625)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7tm5i"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3s8yl"]
 radius = 11.0
 height = 96.0
 
@@ -19,11 +19,11 @@ collision_mask = 16
 light_mask = 16
 visibility_layer = 16
 position = Vector2(2.5, -37)
-shape = SubResource("RectangleShape2D_3nfkd")
+shape = SubResource("RectangleShape2D_wc71x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 1)
-shape = SubResource("CapsuleShape2D_7tm5i")
+shape = SubResource("CapsuleShape2D_3s8yl")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
 position = Vector2(-2, 0)

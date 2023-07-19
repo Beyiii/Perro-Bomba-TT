@@ -1,12 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://c58wx6h7ld0wr"]
+[gd_scene load_steps=4 format=3 uid="uid://bh1pqieppkrwj"]
 
 [ext_resource type="Texture2D" uid="uid://bwe35m631thdq" path="res://alicate.png" id="1_csqkb"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cfrme"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_prwpd"]
 radius = 5.0
 height = 14.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n5up2"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j7ggg"]
 height = 80.0
 
 [node name="Alicate2" type="RigidBody2D"]
@@ -17,10 +17,10 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -33)
-shape = SubResource("CapsuleShape2D_cfrme")
+shape = SubResource("CapsuleShape2D_prwpd")
 
 [node name="CollisionShape-A" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_n5up2")
+shape = SubResource("CapsuleShape2D_j7ggg")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape-A"]
 scale = Vector2(0.2, 0.2)
