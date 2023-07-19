@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://xshpee6hetdy"]
+[gd_scene load_steps=4 format=3 uid="uid://dgopxp2gtfkyx"]
 
-[ext_resource type="Texture2D" uid="uid://ctjnlx3w4p8pq" path="res://cuter.png" id="1_e3388"]
+[ext_resource type="Texture2D" uid="uid://ctjnlx3w4p8pq" path="res://cuter.png" id="1_jxydk"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_05x3h"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_60er7"]
 radius = 3.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k7u51"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2fnd"]
 size = Vector2(7.59531, 77.8265)
 
-[node name="Tiptop2" type="RigidBody2D"]
+[node name="TipTop2" type="RigidBody2D"]
 
 [node name="Area2D" type="Area2D" parent="." groups=["Corte"]]
 position = Vector2(16, -35)
@@ -19,15 +19,15 @@ collision_mask = 16
 light_mask = 16
 visibility_layer = 16
 position = Vector2(-1.90735e-06, 3.8147e-06)
-shape = SubResource("CircleShape2D_05x3h")
+shape = SubResource("CircleShape2D_60er7")
 
 [node name="CollisionShape-CC" type="CollisionShape2D" parent="."]
 position = Vector2(-0.409104, -2.67536)
 rotation = 0.47822
-shape = SubResource("RectangleShape2D_k7u51")
+shape = SubResource("RectangleShape2D_h2fnd")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape-CC"]
 position = Vector2(1.59441, 2.18695)
 rotation = 0.23911
 scale = Vector2(0.15, 0.15)
-texture = ExtResource("1_e3388")
+texture = ExtResource("1_jxydk")

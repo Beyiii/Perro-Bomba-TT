@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dgln0sk3amn3a"]
+[gd_scene load_steps=18 format=3 uid="uid://dgln0sk3amn3a"]
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="1_mhrpl"]
 [ext_resource type="Texture2D" uid="uid://c081xvos02dll" path="res://assets/mesa.jpg" id="1_oh5w5"]
-[ext_resource type="PackedScene" uid="uid://c58wx6h7ld0wr" path="res://scenes/alicate_2.tscn" id="3_w07fx"]
-[ext_resource type="PackedScene" uid="uid://c0i5i2bhg0a4m" path="res://scenes/tijera_2.tscn" id="4_svc8f"]
-[ext_resource type="PackedScene" uid="uid://xshpee6hetdy" path="res://scenes/tiptop_2.tscn" id="5_fa4yw"]
+[ext_resource type="PackedScene" uid="uid://bh1pqieppkrwj" path="res://scenes/alicate_2.tscn" id="3_w07fx"]
+[ext_resource type="PackedScene" uid="uid://dgopxp2gtfkyx" path="res://scenes/tip_top_2.tscn" id="4_itvy3"]
+[ext_resource type="PackedScene" uid="uid://c54jtlhmeoabx" path="res://scenes/tijera_2.tscn" id="4_svc8f"]
 [ext_resource type="PackedScene" uid="uid://2xsb1mg6vop0" path="res://scenes/c_mantequilla.tscn" id="6_0gw7c"]
-[ext_resource type="PackedScene" uid="uid://cqysyqvj3j86e" path="res://scenes/bomba_2.tscn" id="7_hs8rm"]
 [ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="8_s1th8"]
 [ext_resource type="FontFile" uid="uid://sxad1nenyp83" path="res://assets/Font/AlphaProta.otf" id="9_ofjko"]
 [ext_resource type="AudioStream" uid="uid://bspv667hkv7ky" path="res://assets/Musik/Three Chain Links - The Happiest Days Of Our Lives - 02 Drive Fast.mp3" id="10_8gn4o"]
@@ -125,15 +124,22 @@ position = Vector2(195, 149.2)
 scale = Vector2(0.222917, 0.1575)
 texture = ExtResource("1_oh5w5")
 
-[node name="Alicate2" parent="Mesa2" instance=ExtResource("3_w07fx")]
+[node name="Instrumentos" type="Node2D" parent="."]
 
-[node name="Tijera2" parent="Mesa2" instance=ExtResource("4_svc8f")]
+[node name="Alicate2" parent="Instrumentos" instance=ExtResource("3_w07fx")]
+position = Vector2(331, 100)
+gravity_scale = 0.0
 
-[node name="Tiptop2" parent="Mesa2" instance=ExtResource("5_fa4yw")]
+[node name="TipTop2" parent="Instrumentos" instance=ExtResource("4_itvy3")]
+position = Vector2(260, 102)
+gravity_scale = 0.0
 
-[node name="CMantequilla" parent="Mesa2" instance=ExtResource("6_0gw7c")]
+[node name="CMantequilla" parent="Instrumentos" instance=ExtResource("6_0gw7c")]
+position = Vector2(178, 100)
 
-[node name="Bomba2" parent="Mesa2" instance=ExtResource("7_hs8rm")]
+[node name="Tijera2" parent="Instrumentos" instance=ExtResource("4_svc8f")]
+position = Vector2(91, 101)
+gravity_scale = 0.0
 
 [node name="Perrito2" type="Sprite2D" parent="."]
 position = Vector2(37, 165)

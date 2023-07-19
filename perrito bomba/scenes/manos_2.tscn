@@ -1,5 +1,1243 @@
-[gd_scene format=3 uid="uid://kosefwv0edlt"]
+[gd_scene load_steps=81 format=3 uid="uid://kosefwv0edlt"]
+
+[ext_resource type="Script" path="res://scenes/manos_2.gd" id="1_bbtyu"]
+[ext_resource type="Texture2D" uid="uid://bm55m5rjnbcye" path="res://assets/Manito Quieta.png" id="2_nrwgw"]
+[ext_resource type="Texture2D" uid="uid://b2tckfcwv4ltr" path="res://assets/Cerrar-Todo.png" id="3_odytx"]
+[ext_resource type="Texture2D" uid="uid://k4ujn4u7q3uw" path="res://assets/Dedos Derechos.png" id="4_78rhd"]
+[ext_resource type="Texture2D" uid="uid://cwpxok8281vf8" path="res://assets/Cerrar-Izq.png" id="5_1s26o"]
+[ext_resource type="Texture2D" uid="uid://bhed72lu67nye" path="res://assets/Cerrar-Der.png" id="6_rl37r"]
+[ext_resource type="Texture2D" uid="uid://8cmbkba2iecl" path="res://assets/Cerrar-Medios.png" id="7_fs8tx"]
+[ext_resource type="Texture2D" uid="uid://cvpajnwx7wprj" path="res://assets/Idle.png" id="8_aq2mo"]
+[ext_resource type="PackedScene" uid="uid://bmvmp1afsyy60" path="res://ui/pause_menu.tscn" id="9_v7h8i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vhaqi"]
+radius = 6.0
+height = 34.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uhqne"]
+radius = 17.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_khg42"]
+radius = 17.5
+
+[sub_resource type="Animation" id="Animation_4bos5"]
+resource_name = "AbrirDer"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_odytx")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_j71qy"]
+resource_name = "AbrirIzq"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito izq:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito izq:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito izq:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_odytx")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ybuv5"]
+resource_name = "CerrarDer"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_odytx")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_7yd6e"]
+resource_name = "CerrarIzq"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito izq:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito izq:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito izq:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_odytx")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_pia4y"]
+resource_name = "DerechosAbrirDer"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_78rhd")]
+}
+
+[sub_resource type="Animation" id="Animation_lby0g"]
+resource_name = "DerechosAbrirIzq"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito izq:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito izq:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito izq:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_1s26o")]
+}
+
+[sub_resource type="Animation" id="Animation_j7ejl"]
+resource_name = "DerechosCerrarDer"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_rl37r")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_4kvso"]
+resource_name = "DerechosCerrarIzq"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito izq:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito izq:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito izq:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_1s26o")]
+}
+
+[sub_resource type="Animation" id="Animation_hp5t4"]
+resource_name = "IzquierdosAbrirDer"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_1s26o")]
+}
+
+[sub_resource type="Animation" id="Animation_cev5s"]
+resource_name = "IzquierdosAbrirIzq"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito izq:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito izq:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito izq:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_rl37r")]
+}
+
+[sub_resource type="Animation" id="Animation_iwpgc"]
+resource_name = "IzquierdosCerrarDer"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_1s26o")]
+}
+
+[sub_resource type="Animation" id="Animation_rglfs"]
+resource_name = "IzquierdosCerrarIzq"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito izq:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito izq:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito izq:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_rl37r")]
+}
+
+[sub_resource type="Animation" id="Animation_2w4dh"]
+resource_name = "MediosAbrirDer"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fs8tx")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_j6h62"]
+resource_name = "MediosAbrirIzq"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito izq:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito izq:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito izq:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fs8tx")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_vlyxc"]
+resource_name = "MediosCerrarDer"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fs8tx")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_rkbms"]
+resource_name = "MediosCerrarIzq"
+length = 0.56
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito izq:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito izq:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito izq:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fs8tx")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21, 0.28, 0.35, 0.42, 0.49),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_hofar"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_nrwgw")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_nrwgw")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Manito izq:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Manito izq:hframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Manito izq:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ctlhp"]
+resource_name = "idleDer"
+length = 0.3
+loop_mode = 2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito der:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito der:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito der:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_aq2mo")]
+}
+
+[sub_resource type="Animation" id="Animation_638jl"]
+resource_name = "idleIzq"
+length = 0.3
+loop_mode = 2
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Manito izq:flip_h")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Manito izq:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Manito izq:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Manito izq:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_aq2mo")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dx0yp"]
+_data = {
+"AbrirDer": SubResource("Animation_4bos5"),
+"AbrirIzq": SubResource("Animation_j71qy"),
+"CerrarDer": SubResource("Animation_ybuv5"),
+"CerrarIzq": SubResource("Animation_7yd6e"),
+"DerechosAbrirDer": SubResource("Animation_pia4y"),
+"DerechosAbrirIzq": SubResource("Animation_lby0g"),
+"DerechosCerrarDer": SubResource("Animation_j7ejl"),
+"DerechosCerrarIzq": SubResource("Animation_4kvso"),
+"IzquierdosAbrirDer": SubResource("Animation_hp5t4"),
+"IzquierdosAbrirIzq": SubResource("Animation_cev5s"),
+"IzquierdosCerrarDer": SubResource("Animation_iwpgc"),
+"IzquierdosCerrarIzq": SubResource("Animation_rglfs"),
+"MediosAbrirDer": SubResource("Animation_2w4dh"),
+"MediosAbrirIzq": SubResource("Animation_j6h62"),
+"MediosCerrarDer": SubResource("Animation_vlyxc"),
+"MediosCerrarIzq": SubResource("Animation_rkbms"),
+"RESET": SubResource("Animation_hofar"),
+"idleDer": SubResource("Animation_ctlhp"),
+"idleIzq": SubResource("Animation_638jl")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d7jy0"]
+animation = &"AbrirIzq"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lmvbr"]
+animation = &"CerrarIzq"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l7gse"]
+animation = &"DerechosAbrirIzq"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hxpiv"]
+animation = &"DerechosCerrarIzq"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_buvho"]
+animation = &"IzquierdosAbrirIzq"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3r57p"]
+animation = &"IzquierdosCerrarIzq"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5n4fh"]
+animation = &"MediosAbrirIzq"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gwajo"]
+animation = &"MediosCerrarIzq"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3vgdq"]
+animation = &"idleIzq"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ommp"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0j16a"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_snwq2"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fs05r"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6xhv7"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dvrkk"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x6mxk"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u2x1b"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g1sar"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ucauj"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ymkbh"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_81cc0"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kcus3"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vketk"]
+states/AbrirIzq/node = SubResource("AnimationNodeAnimation_d7jy0")
+states/AbrirIzq/position = Vector2(672, 203)
+states/CerrarIzq/node = SubResource("AnimationNodeAnimation_lmvbr")
+states/CerrarIzq/position = Vector2(672, 100)
+states/DerechosAbrirIzq/node = SubResource("AnimationNodeAnimation_l7gse")
+states/DerechosAbrirIzq/position = Vector2(512, 377.427)
+states/DerechosCerrarIzq/node = SubResource("AnimationNodeAnimation_hxpiv")
+states/DerechosCerrarIzq/position = Vector2(604, 283.427)
+states/IzquierdosAbrirIzq/node = SubResource("AnimationNodeAnimation_buvho")
+states/IzquierdosAbrirIzq/position = Vector2(232, 377.427)
+states/IzquierdosCerrarIzq/node = SubResource("AnimationNodeAnimation_3r57p")
+states/IzquierdosCerrarIzq/position = Vector2(138, 283.427)
+states/MediosAbrirIzq/node = SubResource("AnimationNodeAnimation_5n4fh")
+states/MediosAbrirIzq/position = Vector2(336, 17.2807)
+states/MediosCerrarIzq/node = SubResource("AnimationNodeAnimation_gwajo")
+states/MediosCerrarIzq/position = Vector2(529, 17.2807)
+states/idleIzq/node = SubResource("AnimationNodeAnimation_3vgdq")
+states/idleIzq/position = Vector2(358, 100)
+transitions = ["Start", "idleIzq", SubResource("AnimationNodeStateMachineTransition_1ommp"), "idleIzq", "CerrarIzq", SubResource("AnimationNodeStateMachineTransition_0j16a"), "CerrarIzq", "AbrirIzq", SubResource("AnimationNodeStateMachineTransition_snwq2"), "AbrirIzq", "idleIzq", SubResource("AnimationNodeStateMachineTransition_fs05r"), "idleIzq", "MediosCerrarIzq", SubResource("AnimationNodeStateMachineTransition_6xhv7"), "MediosCerrarIzq", "MediosAbrirIzq", SubResource("AnimationNodeStateMachineTransition_dvrkk"), "MediosAbrirIzq", "idleIzq", SubResource("AnimationNodeStateMachineTransition_x6mxk"), "idleIzq", "DerechosCerrarIzq", SubResource("AnimationNodeStateMachineTransition_u2x1b"), "idleIzq", "IzquierdosCerrarIzq", SubResource("AnimationNodeStateMachineTransition_g1sar"), "DerechosCerrarIzq", "DerechosAbrirIzq", SubResource("AnimationNodeStateMachineTransition_ucauj"), "IzquierdosCerrarIzq", "IzquierdosAbrirIzq", SubResource("AnimationNodeStateMachineTransition_ymkbh"), "DerechosAbrirIzq", "idleIzq", SubResource("AnimationNodeStateMachineTransition_81cc0"), "IzquierdosAbrirIzq", "idleIzq", SubResource("AnimationNodeStateMachineTransition_kcus3")]
+graph_offset = Vector2(0, 216.427)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_mfdv7"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_j3mfg"]
+animation = &"AbrirDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jen53"]
+animation = &"CerrarDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dymf2"]
+animation = &"DerechosAbrirDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_87wb0"]
+animation = &"DerechosCerrarDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_30rre"]
+animation = &"IzquierdosAbrirDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jv1q6"]
+animation = &"IzquierdosCerrarDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q15hu"]
+animation = &"MediosAbrirDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7imu0"]
+animation = &"MediosCerrarDer"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w2bp1"]
+animation = &"idleDer"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hudr6"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gciax"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_377he"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ynw3o"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0x8gq"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xs1of"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_puqoe"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_08hfn"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yesyq"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1h55r"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jbc8c"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a4gsh"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rp18d"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_25b4m"]
+states/AbrirDer/node = SubResource("AnimationNodeAnimation_j3mfg")
+states/AbrirDer/position = Vector2(731, 209)
+states/CerrarDer/node = SubResource("AnimationNodeAnimation_jen53")
+states/CerrarDer/position = Vector2(731, 108)
+states/DerechosAbrirDer/node = SubResource("AnimationNodeAnimation_dymf2")
+states/DerechosAbrirDer/position = Vector2(514, 436.18)
+states/DerechosCerrarDer/node = SubResource("AnimationNodeAnimation_87wb0")
+states/DerechosCerrarDer/position = Vector2(582, 316.18)
+states/IzquierdosAbrirDer/node = SubResource("AnimationNodeAnimation_30rre")
+states/IzquierdosAbrirDer/position = Vector2(226, 436.18)
+states/IzquierdosCerrarDer/node = SubResource("AnimationNodeAnimation_jv1q6")
+states/IzquierdosCerrarDer/position = Vector2(150, 316.18)
+states/MediosAbrirDer/node = SubResource("AnimationNodeAnimation_q15hu")
+states/MediosAbrirDer/position = Vector2(331, 23.9181)
+states/MediosCerrarDer/node = SubResource("AnimationNodeAnimation_7imu0")
+states/MediosCerrarDer/position = Vector2(564, 23.9181)
+states/idleDer/node = SubResource("AnimationNodeAnimation_w2bp1")
+states/idleDer/position = Vector2(355, 100)
+transitions = ["Start", "idleDer", SubResource("AnimationNodeStateMachineTransition_hudr6"), "idleDer", "CerrarDer", SubResource("AnimationNodeStateMachineTransition_gciax"), "CerrarDer", "AbrirDer", SubResource("AnimationNodeStateMachineTransition_377he"), "AbrirDer", "idleDer", SubResource("AnimationNodeStateMachineTransition_ynw3o"), "idleDer", "MediosCerrarDer", SubResource("AnimationNodeStateMachineTransition_0x8gq"), "MediosCerrarDer", "MediosAbrirDer", SubResource("AnimationNodeStateMachineTransition_xs1of"), "MediosAbrirDer", "idleDer", SubResource("AnimationNodeStateMachineTransition_puqoe"), "idleDer", "DerechosCerrarDer", SubResource("AnimationNodeStateMachineTransition_08hfn"), "idleDer", "IzquierdosCerrarDer", SubResource("AnimationNodeStateMachineTransition_yesyq"), "DerechosCerrarDer", "DerechosAbrirDer", SubResource("AnimationNodeStateMachineTransition_1h55r"), "IzquierdosCerrarDer", "IzquierdosAbrirDer", SubResource("AnimationNodeStateMachineTransition_jbc8c"), "DerechosAbrirDer", "idleDer", SubResource("AnimationNodeStateMachineTransition_a4gsh"), "IzquierdosAbrirDer", "idleDer", SubResource("AnimationNodeStateMachineTransition_rp18d")]
+graph_offset = Vector2(0, -13.8201)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_7opwk"]
 
 [node name="Manos2" type="CharacterBody2D"]
 position = Vector2(-1.52588e-05, -1.52588e-05)
-scale = Vector2(1, 1)
+script = ExtResource("1_bbtyu")
+
+[node name="Pivot" type="Node2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vhaqi")
+
+[node name="Manito der" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_nrwgw")
+offset = Vector2(500, 0)
+hframes = 2
+
+[node name="MarkerDer" type="Marker2D" parent="Manito der"]
+position = Vector2(475, -262.5)
+scale = Vector2(12.5, 12.5)
+
+[node name="PickableAreaDer" type="Area2D" parent="Manito der"]
+scale = Vector2(12.5, 12.5)
+collision_layer = 112
+collision_mask = 112
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Manito der/PickableAreaDer"]
+position = Vector2(38, -21)
+shape = SubResource("CircleShape2D_uhqne")
+
+[node name="Manito izq" type="Sprite2D" parent="."]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_nrwgw")
+offset = Vector2(-500, 0)
+flip_h = true
+hframes = 2
+
+[node name="MarkerIzq" type="Marker2D" parent="Manito izq"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(-475, -262.5)
+scale = Vector2(12.5, 12.5)
+
+[node name="PickableAreaIzq" type="Area2D" parent="Manito izq"]
+scale = Vector2(12.5, 12.5)
+collision_layer = 112
+collision_mask = 112
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Manito izq/PickableAreaIzq"]
+light_mask = 16
+visibility_layer = 16
+position = Vector2(-38, -21)
+shape = SubResource("CircleShape2D_khg42")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dx0yp")
+}
+
+[node name="AnimationTreeManoIzq" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_vketk")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_mfdv7")
+
+[node name="AnimationTreeManoDer" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_25b4m")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_7opwk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_v7h8i")]
+visible = false
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 1.0
+offset_bottom = -4.0
