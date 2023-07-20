@@ -1,0 +1,86 @@
+[gd_scene load_steps=8 format=3 uid="uid://un4am6fdrice"]
+
+[ext_resource type="Script" path="res://scenes/fuiste_weno2.gd" id="1_ft7m1"]
+[ext_resource type="Texture2D" uid="uid://dy575jx1k4c7q" path="res://assets/Fondos/city 8/7.png" id="2_p5m7o"]
+[ext_resource type="Texture2D" uid="uid://cja63cljpwtp7" path="res://assets/explosiones/explosion-4.png" id="3_5c8eg"]
+[ext_resource type="Texture2D" uid="uid://btkvt60kxfbe5" path="res://assets/explosiones/explosion-5.png" id="4_2g8q4"]
+[ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="5_hjrtk"]
+[ext_resource type="AudioStream" uid="uid://e12hyv251esw" path="res://assets/Musik/[MP3] Tearjerker Music Pack/2. Survivor's Lament.mp3" id="6_vtkdg"]
+[ext_resource type="AudioStream" uid="uid://cl0bmqq653vkj" path="res://assets/Efectos/explosion.mp3" id="7_nk3bl"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ft7m1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(191, 107)
+scale = Vector2(0.166979, 0.166979)
+texture = ExtResource("2_p5m7o")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(27, 122)
+scale = Vector2(0.268482, 0.268482)
+texture = ExtResource("3_5c8eg")
+
+[node name="Sprite2D3" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(90, 132)
+scale = Vector2(0.268482, 0.268482)
+texture = ExtResource("3_5c8eg")
+
+[node name="Sprite2D4" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(184, 149)
+scale = Vector2(0.288108, 0.288108)
+texture = ExtResource("4_2g8q4")
+
+[node name="Sprite2D5" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(237, 131)
+scale = Vector2(0.268482, 0.268482)
+texture = ExtResource("3_5c8eg")
+
+[node name="Sprite2D6" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(311, 125)
+scale = Vector2(0.288108, 0.288108)
+texture = ExtResource("4_2g8q4")
+
+[node name="Sprite2D7" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(129, 92)
+scale = Vector2(0.288108, 0.288108)
+texture = ExtResource("4_2g8q4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 147.0
+offset_top = 74.0
+offset_right = 211.0
+offset_bottom = 100.0
+size_flags_horizontal = 4
+theme = ExtResource("5_hjrtk")
+text = "Perdiste"
+
+[node name="Volver al menu" type="Button" parent="."]
+offset_left = 147.0
+offset_top = 105.0
+offset_right = 277.0
+offset_bottom = 129.0
+scale = Vector2(0.547556, 0.547556)
+theme = ExtResource("5_hjrtk")
+text = "Menu Principal"
+
+[node name="Reintentar" type="Button" parent="."]
+offset_left = 155.0
+offset_top = 90.0
+offset_right = 251.0
+offset_bottom = 114.0
+scale = Vector2(0.587057, 0.587057)
+theme = ExtResource("5_hjrtk")
+text = "Reintentar"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_vtkdg")
+autoplay = true
+bus = &"Musica"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_nk3bl")
+autoplay = true

@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=3 uid="uid://duclsjksmhd1r"]
+
+[ext_resource type="Script" path="res://scenes/bomb_2.gd" id="1_8517p"]
+[ext_resource type="Texture2D" uid="uid://2oj5jfelm8j0" path="res://assets/cable-AZ.png" id="1_p3pbq"]
+[ext_resource type="Texture2D" uid="uid://coomqtu7vrhwr" path="res://assets/cableA.png" id="2_8winv"]
+[ext_resource type="Texture2D" uid="uid://bf48ejdaema0d" path="res://assets/bomb.png" id="3_qg71j"]
+[ext_resource type="Texture2D" uid="uid://bh4un6hdqgbit" path="res://assets/cable-A-roto.png" id="4_h35oa"]
+[ext_resource type="Texture2D" uid="uid://bnm6dfoon5glm" path="res://assets/CableRojo.png" id="4_le4yo"]
+[ext_resource type="Texture2D" uid="uid://c1txe1st313m6" path="res://assets/cable-AZ-roto.png" id="5_tfpcm"]
+[ext_resource type="Texture2D" uid="uid://g7447t1a1ote" path="res://assets/CableRojoRoto.png" id="8_gfwac"]
+
+[sub_resource type="Animation" id="Animation_ayagg"]
+resource_name = "Cable_Amarilo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cable2:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_8winv"), ExtResource("4_h35oa")]
+}
+
+[sub_resource type="Animation" id="Animation_55td7"]
+resource_name = "Cable_Azul"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cable1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_p3pbq"), ExtResource("5_tfpcm")]
+}
+
+[sub_resource type="Animation" id="Animation_mqt7n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cable1:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_p3pbq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("cable2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_8winv")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("cable3:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_le4yo")]
+}
+
+[sub_resource type="Animation" id="Animation_cmbqn"]
+resource_name = "Cable_Rojo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cable3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_le4yo"), ExtResource("8_gfwac")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4gxhu"]
+_data = {
+"Cable_Amarilo": SubResource("Animation_ayagg"),
+"Cable_Azul": SubResource("Animation_55td7"),
+"Cable_Rojo": SubResource("Animation_cmbqn"),
+"RESET": SubResource("Animation_mqt7n")
+}
+
+[node name="Bomb2" type="Node2D"]
+script = ExtResource("1_8517p")
+
+[node name="cable1" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_p3pbq")
+
+[node name="AreaCable1" type="Area2D" parent="cable1" groups=["AreasCables"]]
+light_mask = 4
+visibility_layer = 4
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cable1/AreaCable1"]
+light_mask = 17
+visibility_layer = 17
+polygon = PackedVector2Array(-126.667, -90, -103.333, -120, -76.6667, -146.667, -40, -166.667, 0, -173.333, 43.3333, -163.333, 73.3333, -150, 106.667, -123.333, 140, -86.6667, 133.333, -83.3333, 103.333, -116.667, 80, -133.333, 43.3333, -153.333, 0, -163.333, -36.6667, -160, -73.3333, -140, -96.6667, -116.667, -116.667, -86.6667)
+one_way_collision_margin = 0.0
+
+[node name="cable2" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_8winv")
+
+[node name="AreaCable2" type="Area2D" parent="cable2" groups=["AreasCables"]]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cable2/AreaCable2"]
+polygon = PackedVector2Array(-170, -66.6667, -140, -90, -103.333, -106.667, -60, -116.667, -6.66667, -126.667, 60, -126.667, 136.667, -110, 183.333, -90, 216.667, -66.6667, 226.667, -70, 193.333, -96.6667, 136.667, -123.333, 60, -136.667, -6.66667, -136.667, -63.3333, -130, -110, -113.333, -146.667, -96.6667, -176.667, -76.6667)
+
+[node name="cable3" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_le4yo")
+
+[node name="AreaCable3" type="Area2D" parent="cable3" groups=["AreasCables"]]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="cable3/AreaCable3"]
+position = Vector2(0, 26.7745)
+scale = Vector2(1, 1.5863)
+polygon = PackedVector2Array(-156.667, -67.3103, -136.667, -88.3235, -106.667, -107.235, -66.6667, -124.046, -10, -138.755, 26.6667, -142.958, 73.3333, -136.654, 106.667, -121.945, 123.333, -109.337, 136.667, -92.5261, 153.333, -71.5129, 163.333, -71.5129, 146.667, -92.5261, 133.333, -111.438, 106.667, -132.451, 70, -145.059, 30, -149.262, -10, -145.059, -66.6667, -130.35, -113.333, -111.438, -146.667, -90.4248, -166.667, -67.3103)
+
+[node name="bomba" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_qg71j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4gxhu")
+}
+
+[connection signal="area_entered" from="cable1/AreaCable1" to="." method="_on_area_cable_1_area_entered"]
+[connection signal="area_exited" from="cable1/AreaCable1" to="." method="_on_area_cable_1_area_exited"]
+[connection signal="area_entered" from="cable2/AreaCable2" to="." method="_on_area_cable_2_area_entered"]
+[connection signal="area_exited" from="cable2/AreaCable2" to="." method="_on_area_cable_2_area_exited"]
+[connection signal="area_entered" from="cable3/AreaCable3" to="." method="_on_area_cable_3_area_entered"]
+[connection signal="area_exited" from="cable3/AreaCable3" to="." method="_on_area_cable_3_area_exited"]

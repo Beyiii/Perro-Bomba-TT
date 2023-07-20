@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://tihbhdaqoj7e"]
+
+[ext_resource type="Script" path="res://scenes/pop_up_text.gd" id="1_n1302"]
+[ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="2_sit2q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q16qg"]
+font_size = 10
+
+[node name="PopUpText" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.52588e-05
+offset_top = -1.52588e-05
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n1302")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 284.0
+offset_bottom = 25.0
+color = Color(0.215902, 0.215902, 0.215902, 0.537255)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_right = 284.0
+offset_bottom = 25.0
+theme = ExtResource("2_sit2q")
+theme_override_font_sizes/font_size = 10
+text = "hola"
+label_settings = SubResource("LabelSettings_q16qg")
+horizontal_alignment = 1
+vertical_alignment = 1

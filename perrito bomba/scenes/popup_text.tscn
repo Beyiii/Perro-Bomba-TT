@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj75radpqfk6o"]
+[gd_scene load_steps=4 format=3 uid="uid://cj75radpqfk6o"]
 
 [ext_resource type="Script" path="res://scenes/PopupText.gd" id="1_begte"]
+[ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="2_ffhcc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wfbd4"]
-font_size = 7
+font_size = 10
 
 [node name="PopupText" type="Control"]
 layout_mode = 3
@@ -22,6 +23,8 @@ color = Color(0.215902, 0.215902, 0.215902, 0.537255)
 layout_mode = 0
 offset_right = 284.0
 offset_bottom = 25.0
+theme = ExtResource("2_ffhcc")
+theme_override_font_sizes/font_size = 20
 text = "hola"
 label_settings = SubResource("LabelSettings_wfbd4")
 horizontal_alignment = 1

@@ -5,5 +5,5 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	label.text = "Blue: Has leído el tutorial?"
+	label.text = "Pista: Nombre de famoso perro que dejaba pistas."
 

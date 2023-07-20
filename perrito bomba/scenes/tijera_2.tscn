@@ -9,7 +9,9 @@ size = Vector2(13, 17.0625)
 radius = 11.0
 height = 96.0
 
-[node name="Tijera2" type="RigidBody2D"]
+[node name="Tijera2" type="RigidBody2D" groups=["MOV3"]]
+collision_layer = 16
+collision_mask = 16
 
 [node name="Area2D" type="Area2D" parent="." groups=["Corte"]]
 collision_layer = 16

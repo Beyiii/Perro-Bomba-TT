@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dgln0sk3amn3a"]
+[gd_scene load_steps=21 format=3 uid="uid://dgln0sk3amn3a"]
 
 [ext_resource type="Texture2D" uid="uid://c0pf6ctbxa5de" path="res://assets/Fondo provisorio.png" id="1_mhrpl"]
 [ext_resource type="Texture2D" uid="uid://c081xvos02dll" path="res://assets/mesa.jpg" id="1_oh5w5"]
@@ -6,10 +6,26 @@
 [ext_resource type="PackedScene" uid="uid://dgopxp2gtfkyx" path="res://scenes/tip_top_2.tscn" id="4_itvy3"]
 [ext_resource type="PackedScene" uid="uid://c54jtlhmeoabx" path="res://scenes/tijera_2.tscn" id="4_svc8f"]
 [ext_resource type="PackedScene" uid="uid://2xsb1mg6vop0" path="res://scenes/c_mantequilla.tscn" id="6_0gw7c"]
+[ext_resource type="PackedScene" uid="uid://duclsjksmhd1r" path="res://scenes/bomb_2.tscn" id="7_dcqmk"]
 [ext_resource type="Texture2D" uid="uid://bug4pf8wcsq3o" path="res://assets/Perrito fondo traslucido.png" id="8_s1th8"]
 [ext_resource type="FontFile" uid="uid://sxad1nenyp83" path="res://assets/Font/AlphaProta.otf" id="9_ofjko"]
 [ext_resource type="AudioStream" uid="uid://bspv667hkv7ky" path="res://assets/Musik/Three Chain Links - The Happiest Days Of Our Lives - 02 Drive Fast.mp3" id="10_8gn4o"]
+[ext_resource type="Script" path="res://scenes/Timer2.gd" id="11_bmki7"]
 [ext_resource type="PackedScene" uid="uid://kosefwv0edlt" path="res://scenes/manos_2.tscn" id="11_hwjma"]
+[ext_resource type="PackedScene" uid="uid://tihbhdaqoj7e" path="res://scenes/pop_up_text.tscn" id="12_ixm5y"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jlgtf"]
+animation = &"perrito"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vx6qh"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2r2wy"]
+states/perrito/node = SubResource("AnimationNodeAnimation_jlgtf")
+states/perrito/position = Vector2(389, 100)
+transitions = ["Start", "perrito", SubResource("AnimationNodeStateMachineTransition_vx6qh")]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_esxjt"]
 
 [sub_resource type="Animation" id="Animation_8rpgq"]
 length = 0.001
@@ -98,17 +114,6 @@ _data = {
 "perrito": SubResource("Animation_pt17g")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jlgtf"]
-animation = &"perrito"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vx6qh"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2r2wy"]
-states/perrito/node = SubResource("AnimationNodeAnimation_jlgtf")
-states/perrito/position = Vector2(389, 100)
-transitions = ["Start", "perrito", SubResource("AnimationNodeStateMachineTransition_vx6qh")]
-
 [node name="Nivel 2" type="Node2D"]
 
 [node name="Fondo2" type="Sprite2D" parent="."]
@@ -130,14 +135,23 @@ gravity_scale = 0.0
 
 [node name="TipTop2" parent="Instrumentos" instance=ExtResource("4_itvy3")]
 position = Vector2(260, 102)
+collision_layer = 32
+collision_mask = 32
 gravity_scale = 0.0
 
 [node name="CMantequilla" parent="Instrumentos" instance=ExtResource("6_0gw7c")]
 position = Vector2(178, 100)
+collision_layer = 64
+collision_mask = 64
 
 [node name="Tijera2" parent="Instrumentos" instance=ExtResource("4_svc8f")]
 position = Vector2(91, 101)
+collision_layer = 128
+collision_mask = 128
 gravity_scale = 0.0
+
+[node name="Bomb2" parent="Instrumentos" instance=ExtResource("7_dcqmk")]
+position = Vector2(200, 181)
 
 [node name="Perrito2" type="Sprite2D" parent="."]
 position = Vector2(37, 165)
@@ -145,14 +159,15 @@ scale = Vector2(0.05, 0.05)
 texture = ExtResource("8_s1th8")
 hframes = 2
 
+[node name="AnimationTree" type="AnimationTree" parent="Perrito2"]
+tree_root = SubResource("AnimationNodeStateMachine_2r2wy")
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_esxjt")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Perrito2"]
 libraries = {
 "": SubResource("AnimationLibrary_pwnro")
 }
-
-[node name="AnimationTree" type="AnimationTree" parent="Perrito2"]
-tree_root = SubResource("AnimationNodeStateMachine_2r2wy")
-anim_player = NodePath("../AnimationPlayer")
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 offset_left = 169.0
@@ -175,14 +190,17 @@ stream = ExtResource("10_8gn4o")
 autoplay = true
 bus = &"Musica"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer2" type="Timer" parent="."]
+script = ExtResource("11_bmki7")
 
-[node name="PopUpText" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -1.52588e-05
-offset_top = -1.52588e-05
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PopUpText" parent="." instance=ExtResource("12_ixm5y")]
+offset_left = 50.0
+offset_top = 10.0
+offset_right = 90.0
+offset_bottom = 50.0
 
 [node name="Manos2" parent="." instance=ExtResource("11_hwjma")]
+
+[connection signal="c_mantequilla" from="Instrumentos/Bomb2" to="PopUpText" method="_on_bomb_2_c_mantequilla"]
+[connection signal="noCM" from="Instrumentos/Bomb2" to="PopUpText" method="_on_bomb_2_no_cm"]
+[connection signal="timeout" from="Timer2" to="Timer2" method="_on_timeout"]
