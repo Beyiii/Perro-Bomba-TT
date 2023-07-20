@@ -39,6 +39,21 @@ tracks/0/keys = {
 "values": [ExtResource("1_p3pbq"), ExtResource("5_tfpcm")]
 }
 
+[sub_resource type="Animation" id="Animation_cmbqn"]
+resource_name = "Cable_Rojo"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cable3:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_le4yo"), ExtResource("8_gfwac")]
+}
+
 [sub_resource type="Animation" id="Animation_mqt7n"]
 length = 0.001
 tracks/0/type = "value"
@@ -76,21 +91,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("4_le4yo")]
-}
-
-[sub_resource type="Animation" id="Animation_cmbqn"]
-resource_name = "Cable_Rojo"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("cable3:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("4_le4yo"), ExtResource("8_gfwac")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4gxhu"]

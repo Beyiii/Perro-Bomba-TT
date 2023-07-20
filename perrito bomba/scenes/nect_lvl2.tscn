@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cmmbvgobrjdvo"]
 
-[ext_resource type="Script" path="res://Node2D.gd" id="1_ieq3t"]
+[ext_resource type="Script" path="res://scenes/nect_lvl2.gd" id="1_bflhi"]
 [ext_resource type="Texture2D" uid="uid://7rcs7knhidgs" path="res://assets/Fondos/city 5/7.png" id="2_pl7sx"]
 [ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="3_gu5t4"]
 [ext_resource type="AudioStream" uid="uid://bugsrexwksjt7" path="res://assets/Efectos/aplausos.mp3" id="4_d7o3k"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b2qkbvy6nxr7i" path="res://assets/Perros sonriendo/real png7.png" id="9_i4w3i"]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_ieq3t")
+script = ExtResource("1_bflhi")
 
 [node name="7" type="Sprite2D" parent="."]
 position = Vector2(190, 106)
@@ -29,10 +29,10 @@ text = "Has salvado ciudad
          Molotov!!"
 
 [node name="Volver al menu" type="Button" parent="."]
-offset_left = 123.0
-offset_top = 66.0
-offset_right = 259.0
-offset_bottom = 97.0
+offset_left = 121.0
+offset_top = 96.0
+offset_right = 257.0
+offset_bottom = 127.0
 theme = ExtResource("3_gu5t4")
 text = "Volver al Menu"
 
@@ -66,3 +66,11 @@ texture = ExtResource("8_cn8wn")
 position = Vector2(361, 182)
 scale = Vector2(0.290487, 0.290487)
 texture = ExtResource("9_i4w3i")
+
+[node name="Creditos" type="Button" parent="."]
+offset_left = 149.0
+offset_top = 67.0
+offset_right = 226.0
+offset_bottom = 91.0
+theme = ExtResource("3_gu5t4")
+text = "Creditos"

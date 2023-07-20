@@ -47,6 +47,8 @@ horizontal_alignment = 1
 
 [node name="Volumen general" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+min_value = -30.0
+max_value = 10.0
 
 [node name="Musica" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
