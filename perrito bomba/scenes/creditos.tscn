@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bet4nnkp230dp"]
+[gd_scene load_steps=6 format=3 uid="uid://bet4nnkp230dp"]
 
 [ext_resource type="Script" path="res://Creditos.gd" id="1_juekw"]
 [ext_resource type="Texture2D" uid="uid://dahvsb8ahw884" path="res://assets/Fondos/city 1/10.png" id="2_ycsmq"]
 [ext_resource type="FontFile" uid="uid://bf80vg5cqxqb" path="res://Fonts/Chonkly.otf" id="3_lpfgt"]
 [ext_resource type="Theme" uid="uid://o6lf3kajhvvt" path="res://resources/tema del jueguito.tres" id="4_034ft"]
+[ext_resource type="AudioStream" uid="uid://jnpvropjuigk" path="res://assets/Musik/Three Chain Links - The Happiest Days Of Our Lives - 04 The City, It Speaks To Me.mp3" id="5_waohp"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_juekw")
@@ -16,9 +17,9 @@ texture = ExtResource("2_ycsmq")
 [node name="Timer" type="Timer" parent="."]
 
 [node name="Button" type="Button" parent="."]
-offset_left = 122.0
+offset_left = 1.0
 offset_top = 182.0
-offset_right = 258.0
+offset_right = 137.0
 offset_bottom = 213.0
 theme = ExtResource("4_034ft")
 text = "Volver al Menu"
@@ -34,10 +35,10 @@ grow_vertical = 2
 [node name="Titulos creditos" type="Label" parent="Control"]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 150.0
-offset_top = 33.0
-offset_right = 219.0
-offset_bottom = 52.0
+offset_left = 156.0
+offset_top = 26.0
+offset_right = 225.0
+offset_bottom = 45.0
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_lpfgt")
 theme_override_font_sizes/font_size = 16
@@ -50,10 +51,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 170.0
-offset_top = 88.5
-offset_right = 192.0
-offset_bottom = 99.5
+offset_left = 178.0
+offset_top = 97.0
+offset_right = 200.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -61,6 +62,10 @@ theme_override_fonts/font = ExtResource("3_lpfgt")
 theme_override_font_sizes/font_size = 8
 text = "OLaw"
 horizontal_alignment = 1
-justification_flags = 160
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_waohp")
+autoplay = true
+bus = &"Musica"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

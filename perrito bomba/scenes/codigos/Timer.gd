@@ -3,7 +3,7 @@ extends Timer
 @onready var timer = $"../Timer"
 @onready var contador = $"../ColorRect/Contador"
 
-var Tiempo = 65
+var Tiempo = 30
 var min = 0
 var seg = 0
 

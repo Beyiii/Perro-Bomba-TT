@@ -14,8 +14,8 @@ var titulos_creditos = ['Creditos',
 	'Fonts',''
 ]
 var contenido_creditos = ['Un juego de: \nGrupito Fantastico👾',
-"Adventures of Flying Jack \nAlexander Nakarada \n \nSurvivor's Lament\nTungerman",
- 'Modern Cities \nCraftpix' , '\nPerros,Herramientas y Bomba\n Google imagenes\n \n
+"Adventures of Flying Jack \nAlexander Nakarada \n \nSurvivor's Lament\nTungerman\n \n Drive Fast\n Three Chain Links\n \n The City, It Speaks To Me \n Three Chain Links",
+ 'Modern Cities \nCraftpix' , '\nPerros,Herramientas y Bomba\n Google imagenes\n
 Dibujos \nBeyiii \n \nExplosiones \nLuis Zuno \n' ,
 'Chonkly \nItMeArcadia \n \nAlpha Prota \nGGBotNet','Gracias por jugar'] 
 var titulos = 'Creditos'

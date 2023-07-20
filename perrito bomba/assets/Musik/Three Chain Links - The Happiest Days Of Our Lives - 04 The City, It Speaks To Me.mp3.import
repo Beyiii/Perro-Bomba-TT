@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jnpvropjuigk"
+path="res://.godot/imported/Three Chain Links - The Happiest Days Of Our Lives - 04 The City, It Speaks To Me.mp3-6a10828545898401cdbbe9ae5ae60c56.mp3str"
+
+[deps]
+
+source_file="res://assets/Musik/Three Chain Links - The Happiest Days Of Our Lives - 04 The City, It Speaks To Me.mp3"
+dest_files=["res://.godot/imported/Three Chain Links - The Happiest Days Of Our Lives - 04 The City, It Speaks To Me.mp3-6a10828545898401cdbbe9ae5ae60c56.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
